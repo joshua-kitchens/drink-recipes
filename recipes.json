@@ -22,9 +22,13 @@
       {
         "amount": ".5 oz",
         "name": "orgeat"
+      },
+      {
+        "amount": "1 to 1/2",
+        "name": "lime juice"
       }
     ],
-    "instructions": "",
+    "instructions": "Combine ingredients in shaker. \nShake for 10 - 15 secs\nPour over crushed ice\nGarnish with mint",
     "tags": [
       "tiki",
       "rum",
