@@ -36,5 +36,59 @@
     ],
     "photo": null,
     "created": 1775523942430
+  },
+  {
+    "id": "mnnzq21pe7a5vpt9m3i",
+    "name": "Coconut Pineapple Rum Punch",
+    "spirit": "Rum",
+    "category": "Punch",
+    "glass": "Hurricane",
+    "desc": "Here's a classic-style tiki drink that hits all three flavors— rum, pineapple, and coconut. It's a riff on a Piña Colada with more tiki depth",
+    "ingredients": [
+      {
+        "amount": "1 oz",
+        "name": "Aged Rum"
+      },
+      {
+        "amount": "1/2 oz",
+        "name": "Dark Rum"
+      },
+      {
+        "amount": "1/2 oz",
+        "name": "Coconut Rum"
+      },
+      {
+        "amount": "2 oz",
+        "name": "Pineapple Juice"
+      },
+      {
+        "amount": "1 oz",
+        "name": "Cream of Coconut"
+      },
+      {
+        "amount": "1/2 oz",
+        "name": "Fresh Lime Juice"
+      },
+      {
+        "amount": "1/4 oz",
+        "name": "Falernum"
+      },
+      {
+        "amount": "Dash",
+        "name": "Angostura Bitters"
+      }
+    ],
+    "instructions": "1.  Add all ingredients to a shaker with crushed ice.\n2.  Shake hard for 8–10 seconds.\n3.  Dump everything (ice and all) into a tiki mug or hurricane glass.\n4.  Top with more crushed ice if needed.\n5.  Garnish with a pineapple wedge, mint sprig, and a cherry. A dusting of nutmeg on top is traditional.\nIf you want it lighter and more refreshing, skip the cream of coconut and use 1 oz coconut water instead, then serve over pebble ice.",
+    "tags": [
+      "tiki drink",
+      "rum cocktail",
+      "pineapple rum drink",
+      "coconut cocktail",
+      "piña colada variation",
+      "tropical drink recipe",
+      "falernum cocktail"
+    ],
+    "photo": null,
+    "created": 1775528328158
   }
 ]
