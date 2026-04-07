@@ -1,1 +1,36 @@
-[]
+[
+  {
+    "id": "mnnx41zyn4qphpof6i",
+    "name": "Mai Tai",
+    "spirit": "Rum",
+    "category": "Tiki Classic",
+    "glass": "Tiki Mug",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "1.5 oz",
+        "name": "Dark/Spice Rum"
+      },
+      {
+        "amount": ".8 oz",
+        "name": "White Rum"
+      },
+      {
+        "amount": ".5 oz",
+        "name": "orange curacao"
+      },
+      {
+        "amount": ".5 oz",
+        "name": "orgeat"
+      }
+    ],
+    "instructions": "",
+    "tags": [
+      "tiki",
+      "rum",
+      "strong"
+    ],
+    "photo": null,
+    "created": 1775523942430
+  }
+]
