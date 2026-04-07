@@ -1524,7 +1524,7 @@ function openDetail(id) {
 }
 
 function closeDetail() { document.getElementById('detailOverlay').style.display='none'; viewingId=null; }
-function editCurrent() { closeDetail(); openEdit(viewingId); }
+function editCurrent() { const id = viewingId; closeDetail(); openEdit(id); }
 function deleteCurrent() {
   if (!confirm('Remove this libation from the Tome?')) return;
   recipes = recipes.filter(r => r.id!==viewingId);
