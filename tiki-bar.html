@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rites & Rum</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Lora:ital,wght@0,400;0,600;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:         #0a3d2e;
+  --bg-card:    #0d4a38;
+  --teal:       #4a8c7a;
+  --teal-light: #6db8a0;
+  --gold:       #c9a870;
+  --gold-light: #e2c99a;
+  --cream:      #f5f0e8;
+  --muted:      #a8c4b8;
+  --border:     rgba(201,168,112,0.25);
+  --shadow:     rgba(0,0,0,0.4);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(74,140,122,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 100%, rgba(13,74,56,0.8) 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q5 18 10 20 Q15 22 20 20 Q25 18 30 20 Q35 22 40 20' stroke='rgba(74,140,122,0.07)' stroke-width='1' fill='none'/%3E%3Cpath d='M0 10 Q5 8 10 10 Q15 12 20 10 Q25 8 30 10 Q35 12 40 10' stroke='rgba(74,140,122,0.05)' stroke-width='1' fill='none'/%3E%3Cpath d='M0 30 Q5 28 10 30 Q15 32 20 30 Q25 28 30 30 Q35 32 40 30' stroke='rgba(74,140,122,0.05)' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+  color: var(--cream);
+  font-family: 'Lora', Georgia, serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Leaf shadows in corners */
+body::before {
+  content: '';
+  position: fixed;
+  top: -60px; left: -60px;
+  width: 320px; height: 320px;
+  background: radial-gradient(ellipse, rgba(74,140,122,0.18) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  transform: rotate(-20deg);
+}
+
+/* ── BAMBOO BORDER UTIL ── */
+.bamboo-h {
+  height: 8px;
+  background:
+    repeating-linear-gradient(90deg,
+      transparent 0px, transparent 38px,
+      rgba(201,168,112,0.35) 38px, rgba(201,168,112,0.35) 40px),
+    linear-gradient(180deg, rgba(201,168,112,0.2) 0%, rgba(201,168,112,0.08) 50%, rgba(201,168,112,0.18) 100%);
+  flex-shrink: 0;
+}
+
+/* ── HEADER ── */
+header {
+  position: relative;
+  text-align: center;
+  padding: 2.8rem 1rem 2rem;
+  overflow: hidden;
+}
+
+/* Palm frond SVG left */
+header::before {
+  content: '';
+  position: absolute;
+  left: -20px; top: 0;
+  width: 220px; height: 200px;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.18' fill='%234a8c7a'%3E%3Cellipse cx='30' cy='60' rx='18' ry='55' transform='rotate(-40 30 60)'/%3E%3Cellipse cx='55' cy='40' rx='14' ry='50' transform='rotate(-20 55 40)'/%3E%3Cellipse cx='80' cy='35' rx='12' ry='45' transform='rotate(5 80 35)'/%3E%3Cellipse cx='15' cy='85' rx='16' ry='48' transform='rotate(-55 15 85)'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+/* Palm frond SVG right */
+header::after {
+  content: '';
+  position: absolute;
+  right: -20px; top: 0;
+  width: 220px; height: 200px;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.18' fill='%234a8c7a'%3E%3Cellipse cx='170' cy='60' rx='18' ry='55' transform='rotate(40 170 60)'/%3E%3Cellipse cx='145' cy='40' rx='14' ry='50' transform='rotate(20 145 40)'/%3E%3Cellipse cx='120' cy='35' rx='12' ry='45' transform='rotate(-5 120 35)'/%3E%3Cellipse cx='185' cy='85' rx='16' ry='48' transform='rotate(55 185 85)'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.header-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-bottom: 0.6rem;
+  position: relative;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  color: var(--gold-light);
+  text-shadow: 0 3px 20px rgba(201,168,112,0.35), 0 1px 3px rgba(0,0,0,0.6);
+  line-height: 1.1;
+  position: relative;
+}
+
+.subtitle {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 0.6rem;
+  letter-spacing: 0.04em;
+  position: relative;
+}
+
+.tiki-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1rem auto 0;
+  max-width: 380px;
+  position: relative;
+}
+
+.tiki-divider::before,
+.tiki-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.5;
+}
+
+.tiki-glyph {
+  color: var(--gold);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* ── CONTROLS ── */
+.controls {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  background: rgba(13,74,56,0.7);
+  backdrop-filter: blur(4px);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.search-wrap {
+  flex: 1;
+  min-width: 180px;
+  position: relative;
+}
+
+.search-wrap::before {
+  content: '🌺';
+  position: absolute;
+  left: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  pointer-events: none;
+  filter: grayscale(0.3);
+}
+
+input[type="text"], textarea, select {
+  background: rgba(10,61,46,0.8);
+  border: 1px solid var(--border);
+  color: var(--cream);
+  font-family: 'Lora', serif;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.search-wrap input { padding-left: 2.2rem; }
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--teal-light);
+  box-shadow: 0 0 0 3px rgba(109,184,160,0.12);
+}
+
+input::placeholder, textarea::placeholder { color: rgba(168,196,184,0.5); }
+
+.tag-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; }
+
+.tag-pill {
+  padding: 0.28rem 0.75rem;
+  border-radius: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid rgba(109,184,160,0.3);
+  color: var(--muted);
+  background: transparent;
+  transition: all 0.2s;
+}
+
+.tag-pill:hover, .tag-pill.active {
+  border-color: var(--teal-light);
+  color: var(--teal-light);
+  background: rgba(109,184,160,0.12);
+}
+
+/* ── BUTTONS ── */
+.btn {
+  padding: 0.5rem 1.2rem;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold) 0%, #a8803a 100%);
+  color: #0a3d2e;
+  border: none;
+  box-shadow: 0 2px 14px rgba(201,168,112,0.25);
+}
+.btn-primary:hover {
+  box-shadow: 0 4px 22px rgba(201,168,112,0.45);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+.btn-ghost:hover {
+  border-color: var(--teal-light);
+  color: var(--cream);
+  background: rgba(109,184,160,0.08);
+}
+
+.btn-danger {
+  background: transparent;
+  border: 1px solid rgba(180,70,70,0.4);
+  color: #d08080;
+}
+.btn-danger:hover { background: rgba(180,70,70,0.1); }
+
+/* ── LAYOUT ── */
+.main {
+  display: grid;
+  grid-template-columns: 1fr 310px;
+  min-height: calc(100vh - 230px);
+}
+
+@media (max-width: 860px) {
+  .main { grid-template-columns: 1fr; }
+  .sidebar { border-left: none; border-top: 1px solid var(--border); }
+}
+
+/* ── RECIPE SECTION ── */
+.recipe-section { padding: 1.5rem; }
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.section-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+/* ── RECIPE CARD ── */
+.recipe-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+  position: relative;
+  animation: riseIn 0.35s ease both;
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.recipe-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+  border-color: rgba(201,168,112,0.45);
+}
+
+.card-top-bar {
+  height: 4px;
+  background: linear-gradient(90deg, var(--teal), var(--gold-light), var(--teal-light));
+  opacity: 0;
+  transition: opacity 0.22s;
+}
+.recipe-card:hover .card-top-bar { opacity: 1; }
+
+.card-body { padding: 1.1rem 1.1rem 0.9rem; }
+
+.card-category {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-bottom: 0.3rem;
+}
+
+.card-name {
+  font-family: 'Pacifico', cursive;
+  font-size: 1rem;
+  color: var(--gold-light);
+  margin-bottom: 0.45rem;
+  line-height: 1.25;
+}
+
+.card-desc {
+  font-size: 0.83rem;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+
+.card-tag {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.57rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid rgba(109,184,160,0.25);
+  color: var(--teal);
+  border-radius: 3px;
+}
+
+/* ── EMPTY ── */
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 5rem 2rem;
+  color: var(--teal);
+}
+.empty-icon { font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.5; }
+.empty p { font-style: italic; color: var(--muted); line-height: 1.8; }
+
+/* ── SIDEBAR ── */
+.sidebar {
+  border-left: 1px solid var(--border);
+  background: rgba(10,61,46,0.5);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 170px);
+  position: sticky;
+  top: 61px;
+}
+
+.sidebar-header {
+  padding: 1.1rem 1.1rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.tiki-face {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.sidebar-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 0.95rem;
+  color: var(--gold-light);
+  line-height: 1.2;
+}
+
+.sidebar-sub {
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 0.1rem;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--teal) transparent;
+}
+
+.msg {
+  padding: 0.6rem 0.8rem;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  animation: riseIn 0.25s ease;
+}
+
+.msg-user {
+  background: rgba(201,168,112,0.1);
+  border: 1px solid rgba(201,168,112,0.2);
+  color: var(--cream);
+  align-self: flex-end;
+  max-width: 90%;
+}
+
+.msg-ai {
+  background: rgba(13,74,56,0.8);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  align-self: flex-start;
+  max-width: 95%;
+}
+
+.msg-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.56rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-bottom: 0.25rem;
+  opacity: 0.75;
+}
+
+.thinking-dots span {
+  display: inline-block;
+  animation: blink 1.2s infinite;
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+.thinking-dots span:nth-child(2) { animation-delay: 0.2s; }
+.thinking-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes blink { 0%,80%,100% { opacity:0.2 } 40% { opacity:1 } }
+
+.chat-input-area {
+  padding: 0.7rem;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.chat-row {
+  display: flex;
+  gap: 0.45rem;
+  align-items: flex-end;
+}
+
+.chat-row textarea {
+  resize: none;
+  min-height: 58px;
+  max-height: 110px;
+  font-size: 0.85rem;
+  padding: 0.45rem 0.65rem;
+}
+
+.send-btn {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--teal-light), var(--teal));
+  border: none;
+  color: var(--bg);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  flex-shrink: 0;
+  align-self: flex-end;
+  transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.send-btn:hover { box-shadow: 0 2px 10px rgba(109,184,160,0.4); }
+.send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.api-key-row {
+  display: none;
+  margin-bottom: 0.45rem;
+}
+.api-key-row input { font-size: 0.78rem; }
+
+.api-toggle {
+  background: none;
+  border: none;
+  color: var(--teal);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.25rem 0;
+  float: right;
+  margin-top: 0.3rem;
+  transition: color 0.2s;
+}
+.api-toggle:hover { color: var(--teal-light); }
+
+/* ── MODAL BASE ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeInOverlay 0.2s ease;
+}
+@keyframes fadeInOverlay { from { opacity:0; } to { opacity:1; } }
+
+.modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 540px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+  scrollbar-width: thin;
+  scrollbar-color: var(--teal) transparent;
+  animation: riseIn 0.25s ease;
+}
+
+.modal-header {
+  padding: 1.4rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg-card);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+}
+
+.close-btn {
+  background: none; border: none;
+  color: var(--muted); font-size: 1.5rem;
+  cursor: pointer; line-height: 1; padding: 0;
+  transition: color 0.2s;
+}
+.close-btn:hover { color: var(--gold-light); }
+
+.modal-body { padding: 1.2rem 1.5rem; }
+.modal-footer {
+  padding: 0.9rem 1.5rem 1.4rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 0.6rem;
+  justify-content: flex-end;
+}
+
+.field { margin-bottom: 1.05rem; }
+
+label {
+  display: block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.63rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-bottom: 0.32rem;
+}
+
+textarea { min-height: 85px; }
+
+.ing-list { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 0.4rem; }
+
+.ing-row { display: flex; gap: 0.4rem; }
+.ing-row input:first-child { width: 90px; flex-shrink: 0; }
+.ing-row input:nth-child(2) { flex: 1; }
+
+.rm-btn {
+  background: none;
+  border: 1px solid rgba(180,70,70,0.35);
+  color: #c07070;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 0 0.5rem;
+  font-size: 1rem;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.rm-btn:hover { background: rgba(180,70,70,0.12); }
+
+/* ── DETAIL MODAL ── */
+.detail-header {
+  padding: 1.4rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0;
+  background: var(--bg-card); z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.detail-category {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--teal-light);
+  margin-bottom: 0.25rem;
+}
+
+.detail-name {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.4rem;
+  color: var(--gold-light);
+  line-height: 1.2;
+}
+
+.detail-actions { display: flex; gap: 0.45rem; flex-shrink: 0; }
+
+.detail-body { padding: 1.2rem 1.5rem 1.5rem; }
+
+.detail-desc {
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  line-height: 1.65;
+  font-size: 0.93rem;
+}
+
+.section-title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ing-display { list-style: none; margin-bottom: 1.2rem; }
+.ing-display li {
+  display: flex; gap: 0.75rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(168,196,184,0.1);
+  font-size: 0.88rem;
+  align-items: baseline;
+}
+
+.ing-amt {
+  color: var(--gold);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  min-width: 64px;
+  flex-shrink: 0;
+}
+
+.method-text {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--muted);
+  margin-bottom: 1.1rem;
+  white-space: pre-wrap;
+}
+
+.detail-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem; }
+
+/* ── CARD PHOTO ── */
+.card-photo {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+  gap: 0.4rem;
+}
+
+.card-glass-badge {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+/* ── PHOTO UPLOAD ── */
+.photo-drop {
+  border: 2px dashed var(--border);
+  border-radius: 6px;
+  padding: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-drop:hover, .photo-drop.drag-over {
+  border-color: var(--teal-light);
+  background: rgba(109,184,160,0.06);
+}
+
+.photo-drop input[type="file"] {
+  position: absolute; inset: 0;
+  opacity: 0; cursor: pointer; width: 100%; height: 100%;
+}
+
+.photo-drop-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.photo-drop-hint {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--teal);
+  margin-top: 0.2rem;
+  pointer-events: none;
+}
+
+.photo-preview-wrap {
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+.photo-preview-wrap img {
+  width: 100%;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  display: block;
+}
+
+.photo-remove-btn {
+  position: absolute;
+  top: 0.4rem; right: 0.4rem;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(180,70,70,0.5);
+  color: #e08080;
+  border-radius: 3px;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.7rem;
+  cursor: pointer;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.photo-remove-btn:hover { background: rgba(180,70,70,0.3); }
+
+/* ── DETAIL PHOTO ── */
+.detail-photo {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-meta-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  margin-top: 0.1rem;
+}
+
+.meta-badge {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.65rem;
+  border-radius: 3px;
+}
+
+.badge-category {
+  background: rgba(74,140,122,0.15);
+  border: 1px solid rgba(74,140,122,0.35);
+  color: var(--teal-light);
+}
+
+.badge-glass {
+  background: rgba(201,168,112,0.1);
+  border: 1px solid rgba(201,168,112,0.3);
+  color: var(--gold-light);
+}
+
+/* ── SELECT STYLING ── */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236db8a0' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2rem;
+  cursor: pointer;
+}
+
+select option { background: #0d4a38; color: var(--cream); }
+
+/* ── IO BAR ── */
+.io-bar {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-top: 1px solid var(--border);
+  background: rgba(10,61,46,0.6);
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.io-bar-left { display: flex; align-items: center; gap: 0.75rem; }
+.io-bar-right { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+.sync-status {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+.sync-idle    { color: var(--muted); background: transparent; }
+.sync-saving  { color: var(--gold); background: rgba(201,168,112,0.1); border: 1px solid rgba(201,168,112,0.25); }
+.sync-ok      { color: var(--teal-light); background: rgba(109,184,160,0.1); border: 1px solid rgba(109,184,160,0.25); }
+.sync-error   { color: #e08080; background: rgba(180,70,70,0.1); border: 1px solid rgba(180,70,70,0.25); }
+.sync-local   { color: var(--muted); background: transparent; font-style: italic; }
+
+/* ── SETTINGS MODAL ── */
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.settings-note {
+  background: rgba(74,140,122,0.08);
+  border: 1px solid rgba(74,140,122,0.2);
+  border-radius: 4px;
+  padding: 0.75rem 0.85rem;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.55;
+  grid-column: 1 / -1;
+}
+
+.settings-note a { color: var(--teal-light); }
+.settings-note code {
+  font-family: monospace;
+  background: rgba(109,184,160,0.12);
+  padding: 0.1rem 0.3rem;
+  border-radius: 2px;
+  font-size: 0.85em;
+  font-style: normal;
+}
+
+.connection-status {
+  grid-column: 1 / -1;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: none;
+}
+.conn-ok    { background: rgba(109,184,160,0.12); border: 1px solid rgba(109,184,160,0.3); color: var(--teal-light); display: block; }
+.conn-error { background: rgba(180,70,70,0.1); border: 1px solid rgba(180,70,70,0.3); color: #e08080; display: block; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-eyebrow">🌴 Est. on a Distant Island 🌴</div>
+  <h1>Rites &amp; Rum</h1>
+  <p class="subtitle">Sacred Libations &amp; Island Formulae</p>
+  <div class="tiki-divider">
+    <span class="tiki-glyph">🗿</span>
+  </div>
+</header>
+
+<div class="bamboo-h"></div>
+
+<div class="controls">
+  <div class="search-wrap">
+    <input type="text" id="searchInput" placeholder="Search the Tome…" oninput="render()">
+  </div>
+  <div class="tag-pills" id="tagFilter"></div>
+  <button class="btn btn-primary" onclick="openAdd()">＋ New Libation</button>
+</div>
+
+<div class="main">
+  <!-- RECIPE SECTION -->
+  <section class="recipe-section">
+    <div class="section-header">
+      <span class="section-label" id="countLabel">All Libations</span>
+    </div>
+    <div class="recipe-grid" id="recipeGrid"></div>
+  </section>
+
+  <!-- SIDEBAR ORACLE -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="tiki-face">🗿</div>
+      <div>
+        <div class="sidebar-title">The Tiki Oracle</div>
+        <div class="sidebar-sub">Ask about pairings, subs &amp; technique</div>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg msg-ai">
+        <div class="msg-label">Tiki Oracle</div>
+        Aloha. The fire is lit and the rum is flowing. Ask me about substitutions, garnishes, or describe a mood — I'll find your drink.
+      </div>
+    </div>
+    <div class="chat-input-area">
+      <div class="api-key-row" id="apiKeyRow">
+        <input type="text" id="apiKeyInput" placeholder="Anthropic API key">
+      </div>
+      <div class="chat-row">
+        <textarea id="chatInput" placeholder="Ask the Oracle…" rows="2" onkeydown="handleKey(event)"></textarea>
+        <button class="send-btn" id="sendBtn" onclick="sendChat()">↑</button>
+      </div>
+      <button class="api-toggle" onclick="toggleKey()">API Key</button>
+    </div>
+  </aside>
+</div>
+
+<div class="bamboo-h"></div>
+<div class="io-bar">
+  <div class="io-bar-left">
+    <button class="btn btn-ghost" onclick="openSettings()" style="font-size:0.68rem;">⚙ GitHub Sync</button>
+    <span class="sync-status sync-local" id="syncStatus">Local only</span>
+  </div>
+  <div class="io-bar-right">
+    <button class="btn btn-ghost" onclick="exportData()">Export JSON</button>
+    <button class="btn btn-ghost" onclick="document.getElementById('fileIn').click()">Import JSON</button>
+    <input type="file" id="fileIn" accept=".json" style="display:none" onchange="importData(event)">
+  </div>
+</div>
+
+<!-- ADD / EDIT MODAL -->
+<div class="overlay" id="formOverlay" style="display:none" onclick="bgClose('formOverlay')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title" id="formTitle">New Libation</div>
+      <button class="close-btn" onclick="closeForm()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label>Drink Name</label>
+        <input type="text" id="fName" placeholder="e.g. Volcano Punch">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+        <div class="field">
+          <label>Category</label>
+          <select id="fCategory">
+            <option value="">— Select —</option>
+            <option>Tiki Classic</option>
+            <option>Modern Tiki</option>
+            <option>Tropical</option>
+            <option>Punch</option>
+            <option>Frozen</option>
+            <option>Sour</option>
+            <option>Stirred</option>
+            <option>Shot / Shooter</option>
+            <option>Non-Alcoholic</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Glassware</label>
+          <select id="fGlass">
+            <option value="">— Select —</option>
+            <option>Tiki Mug</option>
+            <option>Highball</option>
+            <option>Collins</option>
+            <option>Hurricane</option>
+            <option>Rocks / Old Fashioned</option>
+            <option>Coupe</option>
+            <option>Nick &amp; Nora</option>
+            <option>Martini</option>
+            <option>Goblet</option>
+            <option>Coconut Shell</option>
+            <option>Punch Bowl</option>
+            <option>Shot Glass</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Base Spirit</label>
+        <input type="text" id="fSpirit" placeholder="e.g. Rum, No-Proof, Blended…">
+      </div>
+      <div class="field">
+        <label>Description</label>
+        <textarea id="fDesc" placeholder="Tasting notes, occasion, vibes…"></textarea>
+      </div>
+      <div class="field">
+        <label>Ingredients</label>
+        <div class="ing-list" id="ingList"></div>
+        <button class="btn btn-ghost" style="font-size:0.68rem;padding:0.3rem 0.8rem;margin-top:0.25rem;" onclick="addIngRow()">+ Add Ingredient</button>
+      </div>
+      <div class="field">
+        <label>Method</label>
+        <textarea id="fMethod" placeholder="Instructions, glassware, garnish…" style="min-height:100px;"></textarea>
+      </div>
+      <div class="field">
+        <label>Tags <span style="font-family:Lora;font-style:italic;text-transform:none;letter-spacing:0;font-size:0.76rem;color:var(--muted)">(comma separated)</span></label>
+        <input type="text" id="fTags" placeholder="e.g. rum, tropical, frozen, tiki-classic">
+      </div>
+      <div class="field">
+        <label>Photo</label>
+        <div class="photo-drop" id="photoDrop" ondragover="photoDragOver(event)" ondragleave="photoDragLeave(event)" ondrop="photoDrop(event)">
+          <input type="file" id="fPhoto" accept="image/*" onchange="photoSelected(event)">
+          <div class="photo-drop-label">📸 Upload Photo</div>
+          <div class="photo-drop-hint">Drag & drop or click to browse</div>
+        </div>
+        <div class="photo-preview-wrap" id="photoPreviewWrap" style="display:none">
+          <img id="photoPreview" src="" alt="Preview">
+          <button class="photo-remove-btn" onclick="removePhoto()">Remove</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeForm()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveRecipe()">Save Libation</button>
+    </div>
+  </div>
+</div>
+
+<!-- DETAIL MODAL -->
+<div class="overlay" id="detailOverlay" style="display:none" onclick="bgClose('detailOverlay')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <img id="dPhoto" class="detail-photo" src="" alt="" style="display:none">
+    <div class="detail-header">
+      <div>
+        <div class="detail-category" id="dCat"></div>
+        <div class="detail-name" id="dName"></div>
+      </div>
+      <div class="detail-actions">
+        <button class="btn btn-ghost" style="padding:0.35rem 0.8rem;font-size:0.66rem;" onclick="editCurrent()">Edit</button>
+        <button class="btn btn-danger" style="padding:0.35rem 0.8rem;font-size:0.66rem;" onclick="deleteCurrent()">Delete</button>
+        <button class="close-btn" onclick="closeDetail()">×</button>
+      </div>
+    </div>
+    <div class="detail-body">
+      <div class="detail-meta-badges" id="dMetaBadges"></div>
+      <p class="detail-desc" id="dDesc"></p>
+      <div class="section-title">🍹 Ingredients</div>
+      <ul class="ing-display" id="dIng"></ul>
+      <div class="section-title">🌺 Method</div>
+      <div class="method-text" id="dMethod"></div>
+      <div class="detail-tags" id="dTags"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── STATE ──
+let recipes = [];
+let activeTag = null;
+let editingId = null;
+let viewingId = null;
+let apiKey = localStorage.getItem('rites-and-rum-key') || '';
+let chatHistory = [];
+let fileSha = null; // GitHub file SHA — required for updates
+
+// GitHub config — stored in localStorage, never in the JSON
+let ghConfig = JSON.parse(localStorage.getItem('rites-and-rum-gh') || 'null');
+
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+// ── SYNC STATUS ──
+function setSyncStatus(state, msg) {
+  const el = document.getElementById('syncStatus');
+  el.className = 'sync-status sync-' + state;
+  el.textContent = msg;
+}
+
+// ── GITHUB API ──
+function ghHeaders() {
+  return {
+    'Authorization': `Bearer ${ghConfig.token}`,
+    'Accept': 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28'
+  };
+}
+
+function ghUrl() {
+  const f = ghConfig.file || 'recipes.json';
+  return `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${f}`;
+}
+
+async function loadFromGitHub() {
+  if (!ghConfig?.token) {
+    // Fall back to localStorage
+    recipes = JSON.parse(localStorage.getItem('rites-and-rum-local') || '[]');
+    setSyncStatus('local', 'Local only');
+    render();
+    return;
+  }
+  setSyncStatus('saving', 'Loading…');
+  try {
+    const params = ghConfig.branch ? `?ref=${ghConfig.branch}` : '';
+    const res = await fetch(ghUrl() + params, { headers: ghHeaders() });
+    if (res.status === 404) {
+      // File doesn't exist yet — start fresh
+      recipes = [];
+      fileSha = null;
+      setSyncStatus('ok', 'Connected — no file yet');
+      render();
+      return;
+    }
+    if (!res.ok) throw new Error(`GitHub ${res.status}`);
+    const data = await res.json();
+    fileSha = data.sha;
+    recipes = JSON.parse(atob(data.content.replace(/\n/g, '')));
+    setSyncStatus('ok', `Synced ✓`);
+    render();
+  } catch(e) {
+    setSyncStatus('error', 'Load failed');
+    console.error(e);
+    // Fall back to local cache
+    recipes = JSON.parse(localStorage.getItem('rites-and-rum-local') || '[]');
+    render();
+  }
+}
+
+async function saveToGitHub() {
+  // Always cache locally as backup
+  localStorage.setItem('rites-and-rum-local', JSON.stringify(recipes));
+
+  if (!ghConfig?.token) {
+    setSyncStatus('local', 'Local only');
+    return;
+  }
+
+  setSyncStatus('saving', 'Saving…');
+  try {
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(recipes, null, 2))));
+    const body = {
+      message: `Update recipes — ${new Date().toISOString().slice(0,10)}`,
+      content,
+      ...(fileSha ? { sha: fileSha } : {}),
+      ...(ghConfig.branch ? { branch: ghConfig.branch } : {})
+    };
+    const res = await fetch(ghUrl(), {
+      method: 'PUT',
+      headers: { ...ghHeaders(), 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.message || `GitHub ${res.status}`);
+    }
+    const data = await res.json();
+    fileSha = data.content.sha;
+    setSyncStatus('ok', 'Saved ✓');
+  } catch(e) {
+    setSyncStatus('error', 'Save failed — check console');
+    console.error(e);
+  }
+}
+
+// Alias used throughout the app
+const save = () => saveToGitHub();
+
+// ── SETTINGS MODAL ──
+function openSettings() {
+  const c = ghConfig || {};
+  document.getElementById('sToken').value  = c.token  || '';
+  document.getElementById('sOwner').value  = c.owner  || '';
+  document.getElementById('sRepo').value   = c.repo   || '';
+  document.getElementById('sFile').value   = c.file   || 'recipes.json';
+  document.getElementById('sBranch').value = c.branch || 'main';
+  document.getElementById('connStatus').className = 'connection-status';
+  document.getElementById('connStatus').textContent = '';
+  document.getElementById('settingsOverlay').style.display = 'flex';
+}
+
+function closeSettings() { document.getElementById('settingsOverlay').style.display = 'none'; }
+
+function getSettingsValues() {
+  return {
+    token:  document.getElementById('sToken').value.trim(),
+    owner:  document.getElementById('sOwner').value.trim(),
+    repo:   document.getElementById('sRepo').value.trim(),
+    file:   document.getElementById('sFile').value.trim() || 'recipes.json',
+    branch: document.getElementById('sBranch').value.trim() || 'main'
+  };
+}
+
+async function testConnection() {
+  const c = getSettingsValues();
+  const btn = document.getElementById('testBtn');
+  const status = document.getElementById('connStatus');
+  if (!c.token || !c.owner || !c.repo) {
+    status.className = 'connection-status conn-error';
+    status.textContent = 'Please fill in token, owner, and repo.';
+    return;
+  }
+  btn.textContent = 'Testing…';
+  btn.disabled = true;
+  try {
+    const params = c.branch ? `?ref=${c.branch}` : '';
+    const url = `https://api.github.com/repos/${c.owner}/${c.repo}/contents/${c.file}${params}`;
+    const res = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${c.token}`,
+        'Accept': 'application/vnd.github+json'
+      }
+    });
+    if (res.status === 404) {
+      status.className = 'connection-status conn-ok';
+      status.textContent = `✓ Repo found — ${c.file} will be created on first save.`;
+    } else if (res.ok) {
+      status.className = 'connection-status conn-ok';
+      status.textContent = `✓ Connected — ${c.file} found and ready.`;
+    } else {
+      throw new Error(`HTTP ${res.status}`);
+    }
+  } catch(e) {
+    status.className = 'connection-status conn-error';
+    status.textContent = `✗ ${e.message} — check token, owner, and repo name.`;
+  }
+  btn.textContent = 'Test Connection';
+  btn.disabled = false;
+}
+
+async function saveSettings() {
+  const c = getSettingsValues();
+  if (!c.token || !c.owner || !c.repo) {
+    alert('Token, owner, and repo are required.');
+    return;
+  }
+  ghConfig = c;
+  localStorage.setItem('rites-and-rum-gh', JSON.stringify(ghConfig));
+  closeSettings();
+  fileSha = null; // reset so we re-fetch SHA
+  await loadFromGitHub();
+}
+
+// ── PHOTO HANDLING ──
+let currentPhotoData = null;
+
+function photoSelected(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  loadPhotoFile(file);
+}
+
+function photoDragOver(e) {
+  e.preventDefault();
+  document.getElementById('photoDrop').classList.add('drag-over');
+}
+
+function photoDragLeave() {
+  document.getElementById('photoDrop').classList.remove('drag-over');
+}
+
+function photoDrop(e) {
+  e.preventDefault();
+  document.getElementById('photoDrop').classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) loadPhotoFile(file);
+}
+
+function loadPhotoFile(file) {
+  const reader = new FileReader();
+  reader.onload = ev => {
+    currentPhotoData = ev.target.result;
+    document.getElementById('photoPreview').src = currentPhotoData;
+    document.getElementById('photoPreviewWrap').style.display = 'block';
+    document.getElementById('photoDrop').style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+
+function removePhoto() {
+  currentPhotoData = null;
+  document.getElementById('photoPreviewWrap').style.display = 'none';
+  document.getElementById('photoDrop').style.display = 'block';
+  document.getElementById('fPhoto').value = '';
+}
+
+// ── RENDER ──
+function render() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const grid = document.getElementById('recipeGrid');
+
+  const filtered = recipes.filter(r => {
+    const hit = !q ||
+      r.name.toLowerCase().includes(q) ||
+      (r.spirit||'').toLowerCase().includes(q) ||
+      (r.desc||'').toLowerCase().includes(q) ||
+      (r.tags||[]).some(t => t.toLowerCase().includes(q));
+    return hit && (!activeTag || (r.tags||[]).includes(activeTag));
+  });
+
+  document.getElementById('countLabel').textContent =
+    filtered.length === recipes.length
+      ? `All Libations (${recipes.length})`
+      : `${filtered.length} of ${recipes.length}`;
+
+  if (!filtered.length) {
+    grid.innerHTML = `<div class="empty">
+      <div class="empty-icon">🌴</div>
+      <p>${recipes.length === 0
+        ? 'The Tome is empty.<br>Add your first island libation above.'
+        : 'No libations match your search.<br>Try different terms.'}</p>
+    </div>`;
+    return renderTags();
+  }
+
+  grid.innerHTML = filtered.map((r,i) => `
+    <div class="recipe-card" style="animation-delay:${i*0.04}s" onclick="openDetail('${r.id}')">
+      <div class="card-top-bar"></div>
+      ${r.photo ? `<img class="card-photo" src="${r.photo}" alt="${esc(r.name)}">` : ''}
+      <div class="card-body">
+        <div class="card-meta-row">
+          <div class="card-category">${esc(r.spirit||r.category||'')}</div>
+          ${r.glass ? `<span class="card-glass-badge">🥃 ${esc(r.glass)}</span>` : ''}
+        </div>
+        <div class="card-name">${esc(r.name)}</div>
+        ${r.category && r.spirit ? `<div style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:0.3rem;">${esc(r.category)}</div>` : ''}
+        ${r.desc ? `<div class="card-desc">${esc(r.desc)}</div>` : ''}
+        <div class="card-tags">${(r.tags||[]).map(t=>`<span class="card-tag">${esc(t)}</span>`).join('')}</div>
+      </div>
+    </div>`).join('');
+
+  renderTags();
+}
+
+function renderTags() {
+  const all = new Set();
+  recipes.forEach(r => (r.tags||[]).forEach(t => all.add(t)));
+  document.getElementById('tagFilter').innerHTML = [...all].map(t =>
+    `<button class="tag-pill${activeTag===t?' active':''}" onclick="filterTag('${esc(t)}')">${esc(t)}</button>`
+  ).join('');
+}
+
+function filterTag(tag) { activeTag = activeTag===tag ? null : tag; render(); }
+
+// ── FORM ──
+function openAdd() {
+  editingId = null;
+  document.getElementById('formTitle').textContent = 'New Libation';
+  ['fName','fSpirit','fDesc','fMethod','fTags'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('fCategory').value = '';
+  document.getElementById('fGlass').value = '';
+  currentPhotoData = null;
+  document.getElementById('photoPreviewWrap').style.display = 'none';
+  document.getElementById('photoDrop').style.display = 'block';
+  document.getElementById('ingList').innerHTML = '';
+  addIngRow();
+  document.getElementById('formOverlay').style.display = 'flex';
+}
+
+function openEdit(id) {
+  const r = recipes.find(x => x.id === id);
+  if (!r) return;
+  editingId = id;
+  document.getElementById('formTitle').textContent = 'Edit Libation';
+  document.getElementById('fName').value = r.name||'';
+  document.getElementById('fSpirit').value = r.spirit||'';
+  document.getElementById('fDesc').value = r.desc||'';
+  document.getElementById('fMethod').value = r.instructions||'';
+  document.getElementById('fTags').value = (r.tags||[]).join(', ');
+  document.getElementById('fCategory').value = r.category||'';
+  document.getElementById('fGlass').value = r.glass||'';
+  currentPhotoData = r.photo || null;
+  if (currentPhotoData) {
+    document.getElementById('photoPreview').src = currentPhotoData;
+    document.getElementById('photoPreviewWrap').style.display = 'block';
+    document.getElementById('photoDrop').style.display = 'none';
+  } else {
+    document.getElementById('photoPreviewWrap').style.display = 'none';
+    document.getElementById('photoDrop').style.display = 'block';
+  }
+  const list = document.getElementById('ingList');
+  list.innerHTML = '';
+  (r.ingredients||[]).forEach(i => addIngRow(i.amount, i.name));
+  if (!r.ingredients?.length) addIngRow();
+  document.getElementById('formOverlay').style.display = 'flex';
+}
+
+function closeForm() { document.getElementById('formOverlay').style.display = 'none'; }
+
+function addIngRow(amt='', nm='') {
+  const row = document.createElement('div');
+  row.className = 'ing-row';
+  row.innerHTML = `
+    <input type="text" placeholder="Amount" value="${esc(amt)}" style="width:90px">
+    <input type="text" placeholder="Ingredient" value="${esc(nm)}">
+    <button class="rm-btn" onclick="this.parentElement.remove()">×</button>`;
+  document.getElementById('ingList').appendChild(row);
+}
+
+function saveRecipe() {
+  const name = document.getElementById('fName').value.trim();
+  if (!name) { alert('Give this libation a name first.'); return; }
+  const rows = document.querySelectorAll('#ingList .ing-row');
+  const ingredients = [...rows].map(r => ({
+    amount: r.querySelector('input').value.trim(),
+    name: r.querySelectorAll('input')[1].value.trim()
+  })).filter(i => i.name);
+
+  const recipe = {
+    id: editingId || (Date.now().toString(36) + Math.random().toString(36).slice(2)),
+    name,
+    spirit: document.getElementById('fSpirit').value.trim(),
+    category: document.getElementById('fCategory').value,
+    glass: document.getElementById('fGlass').value,
+    desc: document.getElementById('fDesc').value.trim(),
+    ingredients,
+    instructions: document.getElementById('fMethod').value.trim(),
+    tags: document.getElementById('fTags').value.split(',').map(t=>t.trim()).filter(Boolean),
+    photo: currentPhotoData || null,
+    created: editingId ? (recipes.find(r=>r.id===editingId)?.created||Date.now()) : Date.now()
+  };
+
+  recipes = editingId ? recipes.map(r => r.id===editingId ? recipe : r) : [...recipes, recipe];
+  save(); closeForm(); render();
+}
+
+// ── DETAIL ──
+function openDetail(id) {
+  const r = recipes.find(x => x.id===id);
+  if (!r) return;
+  viewingId = id;
+  const photoEl = document.getElementById('dPhoto');
+  if (r.photo) { photoEl.src = r.photo; photoEl.style.display = 'block'; }
+  else { photoEl.style.display = 'none'; }
+  document.getElementById('dCat').textContent = r.spirit||'';
+  document.getElementById('dName').textContent = r.name;
+  document.getElementById('dDesc').textContent = r.desc||'';
+  document.getElementById('dMethod').textContent = r.instructions||'—';
+  const badges = [];
+  if (r.category) badges.push(`<span class="meta-badge badge-category">${esc(r.category)}</span>`);
+  if (r.glass) badges.push(`<span class="meta-badge badge-glass">🥃 ${esc(r.glass)}</span>`);
+  document.getElementById('dMetaBadges').innerHTML = badges.join('');
+  document.getElementById('dIng').innerHTML = (r.ingredients||[]).map(i =>
+    `<li><span class="ing-amt">${esc(i.amount)}</span><span>${esc(i.name)}</span></li>`
+  ).join('') || '<li style="color:var(--teal);font-style:italic">None listed.</li>';
+  document.getElementById('dTags').innerHTML = (r.tags||[]).map(t =>
+    `<span class="card-tag">${esc(t)}</span>`).join('');
+  document.getElementById('detailOverlay').style.display = 'flex';
+}
+
+function closeDetail() { document.getElementById('detailOverlay').style.display='none'; viewingId=null; }
+function editCurrent() { closeDetail(); openEdit(viewingId); }
+function deleteCurrent() {
+  if (!confirm('Remove this libation from the Tome?')) return;
+  recipes = recipes.filter(r => r.id!==viewingId);
+  save(); closeDetail(); render();
+}
+
+function bgClose(id) {
+  if (event.target.id !== id) return;
+  if (id === 'formOverlay') closeForm();
+  else if (id === 'detailOverlay') closeDetail();
+  else if (id === 'settingsOverlay') closeSettings();
+}
+
+// ── ORACLE ──
+function toggleKey() {
+  const row = document.getElementById('apiKeyRow');
+  row.style.display = row.style.display==='none'?'block':'none';
+  if (row.style.display==='block') {
+    const inp = document.getElementById('apiKeyInput');
+    inp.value = apiKey;
+    inp.oninput = () => { apiKey = inp.value.trim(); localStorage.setItem('rites-and-rum-key', apiKey); };
+    inp.focus();
+  }
+}
+
+function handleKey(e) { if (e.key==='Enter'&&!e.shiftKey) { e.preventDefault(); sendChat(); } }
+
+function buildContext() {
+  if (!recipes.length) return 'No recipes saved yet.';
+  return recipes.map(r =>
+    `"${r.name}" (${r.spirit||'unspecified'}) | Category: ${r.category||'—'} | Glass: ${r.glass||'—'}\nDesc: ${r.desc||'none'}\n` +
+    `Ingredients: ${(r.ingredients||[]).map(i=>`${i.amount} ${i.name}`).join(', ')||'none'}\n` +
+    `Tags: ${(r.tags||[]).join(', ')||'none'}`
+  ).join('\n\n');
+}
+
+async function sendChat() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+  const key = apiKey;
+  if (!key) { addMsg('ai','Enter your Anthropic API key using the "API Key" button to wake the Oracle.'); return; }
+
+  input.value = '';
+  addMsg('user', text);
+  const tid = 'typing-'+Date.now();
+  addMsg('ai', '<div class="thinking-dots"><span>·</span><span>·</span><span>·</span></div>', tid);
+  document.getElementById('sendBtn').disabled = true;
+  chatHistory.push({ role:'user', content:text });
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key': key,
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 600,
+        system: `You are the Tiki Oracle — a spirited, warm, and knowledgeable island bartender living inside "Rites & Rum," a personal drink recipe collection. Speak with tropical flair and genuine expertise. Keep answers concise (2–4 sentences) unless depth is needed. Help with substitutions, pairings, technique, garnishes, glassware, and suggesting drinks by mood or ingredients.
+
+The user's current recipe collection:
+${buildContext()}`,
+        messages: chatHistory
+      })
+    });
+    const data = await res.json();
+    const reply = data.content?.[0]?.text || 'The Oracle is silent.';
+    chatHistory.push({ role:'assistant', content:reply });
+    const el = document.getElementById(tid);
+    if (el) el.innerHTML = `<div class="msg-label">Tiki Oracle</div>${reply.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')}`;
+  } catch(err) {
+    const el = document.getElementById(tid);
+    if (el) el.innerHTML = `<div class="msg-label">Tiki Oracle</div><em>The Oracle falters: ${err.message}</em>`;
+  }
+  document.getElementById('sendBtn').disabled = false;
+  document.getElementById('chatMessages').scrollTop = 9999;
+}
+
+function addMsg(type, html, id) {
+  const wrap = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = `msg msg-${type}`;
+  if (id) div.id = id;
+  div.innerHTML = type==='user'
+    ? `<div class="msg-label">You</div>${html}`
+    : (html.startsWith('<') ? html : `<div class="msg-label">Tiki Oracle</div>${html}`);
+  wrap.appendChild(div);
+  wrap.scrollTop = 9999;
+}
+
+// ── IO ──
+function exportData() {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(recipes,null,2)],{type:'application/json'}));
+  a.download = 'rites-and-rum.json';
+  a.click();
+}
+
+function importData(e) {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      if (!Array.isArray(data)) { alert('Expected a JSON array.'); return; }
+      const merge = confirm(`Found ${data.length} recipes.\nOK = Merge  |  Cancel = Replace all`);
+      if (merge) {
+        const ids = new Set(recipes.map(r=>r.id));
+        data.forEach(r => { if (!ids.has(r.id)) recipes.push(r); });
+      } else { recipes = data; }
+      save(); render();
+    } catch { alert('Could not parse file.'); }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+}
+
+// ── INIT ──
+loadFromGitHub();
+</script>
+<!-- GITHUB SETTINGS MODAL -->
+<div class="overlay" id="settingsOverlay" style="display:none" onclick="bgClose('settingsOverlay')">
+  <div class="modal" onclick="event.stopPropagation()" style="max-width:480px;">
+    <div class="modal-header">
+      <div class="modal-title">GitHub Sync</div>
+      <button class="close-btn" onclick="closeSettings()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="settings-note">
+        Saves <code>recipes.json</code> directly to your GitHub repo via the Contents API. Requires a
+        <a href="https://github.com/settings/tokens" target="_blank">Personal Access Token</a>
+        with <code>Contents: Read &amp; Write</code> permission on your repo.
+        The token is stored only in this browser's localStorage.
+      </div>
+      <div class="settings-grid" style="margin-top:1rem;">
+        <div class="field" style="grid-column:1/-1;">
+          <label>Personal Access Token</label>
+          <input type="password" id="sToken" placeholder="github_pat_…">
+        </div>
+        <div class="field">
+          <label>Owner (username or org)</label>
+          <input type="text" id="sOwner" placeholder="your-username">
+        </div>
+        <div class="field">
+          <label>Repository Name</label>
+          <input type="text" id="sRepo" placeholder="rites-and-rum">
+        </div>
+        <div class="field">
+          <label>File Path</label>
+          <input type="text" id="sFile" placeholder="recipes.json">
+        </div>
+        <div class="field">
+          <label>Branch</label>
+          <input type="text" id="sBranch" placeholder="main">
+        </div>
+        <div class="connection-status" id="connStatus"></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeSettings()">Cancel</button>
+      <button class="btn btn-ghost" onclick="testConnection()" id="testBtn">Test Connection</button>
+      <button class="btn btn-primary" onclick="saveSettings()">Save &amp; Sync</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
