@@ -154,5 +154,31 @@
     ],
     "photo": null,
     "created": 1775599448124
+  },
+  {
+    "id": "mnp655ro3mlb88rl4cp",
+    "name": "Gin Martini",
+    "spirit": "Gin",
+    "category": "Other",
+    "glass": "Martini",
+    "desc": "Classic cocktail",
+    "ingredients": [
+      {
+        "amount": "2.5 oz",
+        "name": "good gin"
+      },
+      {
+        "amount": ".5 oz",
+        "name": "dry vermouth"
+      },
+      {
+        "amount": "1 piece",
+        "name": "lemon peel for garnish"
+      }
+    ],
+    "instructions": "chill glass\nshake ingredients in shaker with ice.\nstrain into chilled glass.",
+    "tags": [],
+    "photo": null,
+    "created": 1775599576692
   }
 ]
