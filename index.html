@@ -941,6 +941,31 @@ select option { background: #0d4a38; color: var(--cream); }
 }
 .conn-ok    { background: rgba(109,184,160,0.12); border: 1px solid rgba(109,184,160,0.3); color: var(--teal-light); display: block; }
 .conn-error { background: rgba(180,70,70,0.1); border: 1px solid rgba(180,70,70,0.3); color: #e08080; display: block; }
+
+/* ── PINNED SECTION ── */
+.pinned-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.63rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+.pinned-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.25rem 0 1rem;
+}
+.card-pin-badge {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.45rem;
+  font-size: 0.75rem;
+  line-height: 1;
+  z-index: 1;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+}
 </style>
 </head>
 <body>
@@ -967,6 +992,11 @@ select option { background: #0d4a38; color: var(--cream); }
 <div class="main">
   <!-- RECIPE SECTION -->
   <section class="recipe-section">
+    <div id="pinnedSection" style="display:none">
+      <div class="pinned-label">📌 This Week's Picks</div>
+      <div class="recipe-grid" id="pinnedGrid"></div>
+      <hr class="pinned-divider">
+    </div>
     <div class="section-header">
       <span class="section-label" id="countLabel">All Libations</span>
     </div>
@@ -1114,6 +1144,7 @@ select option { background: #0d4a38; color: var(--cream); }
         <div class="detail-name" id="dName"></div>
       </div>
       <div class="detail-actions">
+        <button class="btn btn-ghost" id="dPinBtn" style="padding:0.35rem 0.8rem;font-size:0.66rem;" onclick="togglePin(viewingId)">📌 Pin</button>
         <button class="btn btn-ghost" style="padding:0.35rem 0.8rem;font-size:0.66rem;" onclick="editCurrent()">Edit</button>
         <button class="btn btn-danger" style="padding:0.35rem 0.8rem;font-size:0.66rem;" onclick="deleteCurrent()">Delete</button>
         <button class="close-btn" onclick="closeDetail()">×</button>
@@ -1405,6 +1436,29 @@ function render() {
     </div>`).join('');
 
   renderTags();
+  renderPinned();
+}
+
+function renderPinned() {
+  const pinned = recipes.filter(r => r.pinned);
+  const section = document.getElementById('pinnedSection');
+  const grid = document.getElementById('pinnedGrid');
+  if (!pinned.length) { section.style.display = 'none'; return; }
+  section.style.display = 'block';
+  grid.innerHTML = pinned.map((r,i) => `
+    <div class="recipe-card" style="animation-delay:${i*0.04}s" onclick="openDetail('${r.id}')">
+      <div class="card-top-bar"></div>
+      <span class="card-pin-badge">📌</span>
+      ${r.photo ? `<img class="card-photo" src="${r.photo}" alt="${esc(r.name)}">` : ''}
+      <div class="card-body">
+        <div class="card-meta-row">
+          <div class="card-category">${esc(r.spirit||r.category||'')}</div>
+          ${r.glass ? `<span class="card-glass-badge">🥃 ${esc(r.glass)}</span>` : ''}
+        </div>
+        <div class="card-name">${esc(r.name)}</div>
+        ${r.desc ? `<div class="card-desc">${esc(r.desc)}</div>` : ''}
+      </div>
+    </div>`).join('');
 }
 
 function renderTags() {
@@ -1520,11 +1574,20 @@ function openDetail(id) {
   ).join('') || '<li style="color:var(--teal);font-style:italic">None listed.</li>';
   document.getElementById('dTags').innerHTML = (r.tags||[]).map(t =>
     `<span class="card-tag">${esc(t)}</span>`).join('');
+  document.getElementById('dPinBtn').textContent = r.pinned ? '📌 Unpin' : '📌 Pin';
   document.getElementById('detailOverlay').style.display = 'flex';
 }
 
 function closeDetail() { document.getElementById('detailOverlay').style.display='none'; viewingId=null; }
 function editCurrent() { const id = viewingId; closeDetail(); openEdit(id); }
+
+function togglePin(id) {
+  const r = recipes.find(x => x.id === id);
+  if (!r) return;
+  r.pinned = !r.pinned;
+  document.getElementById('dPinBtn').textContent = r.pinned ? '📌 Unpin' : '📌 Pin';
+  save(); render();
+}
 function deleteCurrent() {
   if (!confirm('Remove this libation from the Tome?')) return;
   recipes = recipes.filter(r => r.id!==viewingId);
