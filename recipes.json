@@ -184,10 +184,10 @@
   {
     "id": "mnpcgoucxgblb4fbsvb",
     "name": "Pain Killer",
-    "spirit": "",
+    "spirit": "Dark Rum",
     "category": "Tiki Classic",
     "glass": "Tiki Mug",
-    "desc": "Add dark rum, pineapple juice, orange juice, cream of coconut, and ice to a cocktail shaker. Shake until the cocktail mixture is chilled and frothy.\nFill a cocktail glass with crushed ice. Strain the cocktail mixture into glass. Sprinkle with fresh ground nutmeg, If desired, garnish with an orange slice, pineapple slice and pineapple fronds.",
+    "desc": "",
     "ingredients": [
       {
         "amount": "2 oz",
@@ -206,7 +206,7 @@
         "name": "cream of coconut"
       }
     ],
-    "instructions": "",
+    "instructions": "Add dark rum, pineapple juice, orange juice, cream of coconut, and ice to a cocktail shaker. Shake until the cocktail mixture is chilled and frothy.\nFill a cocktail glass with crushed ice. Strain the cocktail mixture into glass. Sprinkle with fresh ground nutmeg, If desired, garnish with an orange slice, pineapple slice and pineapple fronds.",
     "tags": [],
     "photo": null,
     "created": 1775610192324
