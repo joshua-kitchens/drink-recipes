@@ -210,5 +210,35 @@
     "tags": [],
     "photo": null,
     "created": 1775610192324
+  },
+  {
+    "id": "mnpcv5p7yb4ti9c901",
+    "name": "Suffering Bastard",
+    "spirit": "Whiskey, Gin",
+    "category": "Tiki Classic",
+    "glass": "Tiki Mug",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "1 oz",
+        "name": "burbon"
+      },
+      {
+        "amount": "1 oz",
+        "name": "gin"
+      },
+      {
+        "amount": "1/2 oz",
+        "name": "lime juice"
+      },
+      {
+        "amount": "",
+        "name": "Ginger Beer"
+      }
+    ],
+    "instructions": "Add the bourbon, gin, lime juice and bitters into a shaker with ice and shake until well-chilled (about 30 seconds).\n\nStrain into a Collins glass over fresh ice.\n\nTop with the ginger beer.\n\nGarnish with a mint sprig.",
+    "tags": [],
+    "photo": null,
+    "created": 1775610867355
   }
 ]
