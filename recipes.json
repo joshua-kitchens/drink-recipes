@@ -243,5 +243,31 @@
     "photo": null,
     "created": 1775610867355,
     "pinned": true
+  },
+  {
+    "id": "mnpdmokfdhowcyoioj",
+    "name": "Old Fashioned",
+    "spirit": "Whiskey",
+    "category": "Stirred",
+    "glass": "Collins",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "2 oz",
+        "name": "whiskey"
+      },
+      {
+        "amount": "1 oz",
+        "name": "sweetener/sugar"
+      },
+      {
+        "amount": "3 dash",
+        "name": "bitters"
+      }
+    ],
+    "instructions": "in a glass muddle sweetener/sugar and bitters.\nAdd ice\npour whiskey over ice and stir",
+    "tags": [],
+    "photo": null,
+    "created": 1775612151519
   }
 ]
