@@ -22,9 +22,13 @@
       {
         "amount": ".5 oz",
         "name": "orgeat"
+      },
+      {
+        "amount": "1 to 1/2",
+        "name": "lime juice"
       }
     ],
-    "instructions": "",
+    "instructions": "Combine ingredients in shaker. \nShake for 10 - 15 secs\nPour over crushed ice\nGarnish with mint",
     "tags": [
       "tiki",
       "rum",
@@ -32,5 +36,209 @@
     ],
     "photo": null,
     "created": 1775523942430
+  },
+  {
+    "id": "mnnzq21pe7a5vpt9m3i",
+    "name": "Coconut Pineapple Rum Punch",
+    "spirit": "Rum",
+    "category": "Punch",
+    "glass": "Hurricane",
+    "desc": "Here's a classic-style tiki drink that hits all three flavorsÃ¢ÂÂ rum, pineapple, and coconut. It's a riff on a PiÃÂ±a Colada with more tiki depth",
+    "ingredients": [
+      {
+        "amount": "1 oz",
+        "name": "Aged Rum"
+      },
+      {
+        "amount": "1/2 oz",
+        "name": "Dark Rum"
+      },
+      {
+        "amount": "1/2 oz",
+        "name": "Coconut Rum"
+      },
+      {
+        "amount": "2 oz",
+        "name": "Pineapple Juice"
+      },
+      {
+        "amount": "1 oz",
+        "name": "Cream of Coconut"
+      },
+      {
+        "amount": "1/2 oz",
+        "name": "Fresh Lime Juice"
+      },
+      {
+        "amount": "1/4 oz",
+        "name": "Falernum"
+      },
+      {
+        "amount": "Dash",
+        "name": "Angostura Bitters"
+      }
+    ],
+    "instructions": "1.  Add all ingredients to a shaker with crushed ice.\n2.  Shake hard for 8Ã¢ÂÂ10 seconds.\n3.  Dump everything (ice and all) into a tiki mug or hurricane glass.\n4.  Top with more crushed ice if needed.\n5.  Garnish with a pineapple wedge, mint sprig, and a cherry. A dusting of nutmeg on top is traditional.\nIf you want it lighter and more refreshing, skip the cream of coconut and use 1 oz coconut water instead, then serve over pebble ice.",
+    "tags": [
+      "tiki drink",
+      "rum cocktail",
+      "pineapple rum drink",
+      "coconut cocktail",
+      "piÃÂ±a colada variation",
+      "tropical drink recipe",
+      "falernum cocktail"
+    ],
+    "photo": null,
+    "created": 1775528328158
+  },
+  {
+    "id": "mnp5i4dn0l66c0zs34ba",
+    "name": "Blue Hawaiian",
+    "spirit": "Rum",
+    "category": "Modern Tiki",
+    "glass": "Coconut Shell",
+    "desc": "A vibrant tropical cocktail with a stunning electric blue color â sweet, creamy, and island-inspired",
+    "ingredients": [
+      {
+        "amount": "1.5 oz",
+        "name": "White rum"
+      },
+      {
+        "amount": "1 oz",
+        "name": "blue curacao"
+      },
+      {
+        "amount": "2 oz",
+        "name": "pineapple juice"
+      },
+      {
+        "amount": "1 oz",
+        "name": "coconut cream"
+      }
+    ],
+    "instructions": "1\nCombine ingredients: Add 1.5 fluid ounces white rum, 1 fluid ounces blue curaÃ§ao, 2 fluid ounces pineapple juice, and 1 fluid ounces cream of coconut (e.g. Coco LÃ³pez) to a blender with 1 cups crushed ice.\n2\nBlend: Blend on high until smooth and slushy, about 20â25 seconds \n00:25\n.\n3\nServe & garnish: Pour into a chilled hurricane or Collins glass. Garnish with a pineapple slice and a maraschino cherry.",
+    "tags": [],
+    "photo": null,
+    "created": 1775598501803
+  },
+  {
+    "id": "mnp62ekcfrgnp7gtqn6",
+    "name": "Lemon Drop Martini",
+    "spirit": "vodka",
+    "category": "Other",
+    "glass": "Martini",
+    "desc": "Bright, tart, and refreshing",
+    "ingredients": [
+      {
+        "amount": "2 oz",
+        "name": "vodka"
+      },
+      {
+        "amount": "1/2",
+        "name": "squeezed lemon"
+      },
+      {
+        "amount": ".5 oz",
+        "name": "triple sec"
+      },
+      {
+        "amount": ".5 oz",
+        "name": "simple syrup"
+      }
+    ],
+    "instructions": "1\nSugar the rim: Rub a lemon wedge around the rim of a chilled martini glass, then dip the rim in 1 tablespoons sugar (for rim) to coat. Set aside.\n2\nShake: Combine 2 fluid ounces citrus vodka (or plain vodka), 0.8 fluid ounces fresh lemon juice, 0.5 fluid ounces triple sec or Cointreau, and 0.5 fluid ounces simple syrup in a cocktail shaker filled with ice. Shake vigorously for about 15 seconds \n00:15\n.\n3\nStrain & garnish: Strain into the prepared glass. Garnish with 1 pieces lemon wheel or twist (for garnish).",
+    "tags": [
+      "vodka",
+      "classic",
+      "lemon"
+    ],
+    "photo": null,
+    "created": 1775599448124
+  },
+  {
+    "id": "mnp655ro3mlb88rl4cp",
+    "name": "Gin Martini",
+    "spirit": "Gin",
+    "category": "Other",
+    "glass": "Martini",
+    "desc": "Classic cocktail",
+    "ingredients": [
+      {
+        "amount": "2.5 oz",
+        "name": "good gin"
+      },
+      {
+        "amount": ".5 oz",
+        "name": "dry vermouth"
+      },
+      {
+        "amount": "1 piece",
+        "name": "lemon peel for garnish"
+      }
+    ],
+    "instructions": "chill glass\nshake ingredients in shaker with ice.\nstrain into chilled glass.",
+    "tags": [],
+    "photo": null,
+    "created": 1775599576692
+  },
+  {
+    "id": "mnpcgoucxgblb4fbsvb",
+    "name": "Pain Killer",
+    "spirit": "Dark Rum",
+    "category": "Tiki Classic",
+    "glass": "Tiki Mug",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "2 oz",
+        "name": "Dark Rum"
+      },
+      {
+        "amount": "3 oz",
+        "name": "Pineapple Juice"
+      },
+      {
+        "amount": "1 oz",
+        "name": "Orange Juice"
+      },
+      {
+        "amount": "1 oz",
+        "name": "cream of coconut"
+      }
+    ],
+    "instructions": "Add dark rum, pineapple juice, orange juice, cream of coconut, and ice to a cocktail shaker. Shake until the cocktail mixture is chilled and frothy.\nFill a cocktail glass with crushed ice. Strain the cocktail mixture into glass. Sprinkle with fresh ground nutmeg, If desired, garnish with an orange slice, pineapple slice and pineapple fronds.",
+    "tags": [],
+    "photo": null,
+    "created": 1775610192324
+  },
+  {
+    "id": "mnpcv5p7yb4ti9c901",
+    "name": "Suffering Bastard",
+    "spirit": "Whiskey, Gin",
+    "category": "Tiki Classic",
+    "glass": "Tiki Mug",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "1 oz",
+        "name": "burbon"
+      },
+      {
+        "amount": "1 oz",
+        "name": "gin"
+      },
+      {
+        "amount": "1/2 oz",
+        "name": "lime juice"
+      },
+      {
+        "amount": "",
+        "name": "Ginger Beer"
+      }
+    ],
+    "instructions": "Add the bourbon, gin, lime juice and bitters into a shaker with ice and shake until well-chilled (about 30 seconds).\n\nStrain into a Collins glass over fresh ice.\n\nTop with the ginger beer.\n\nGarnish with a mint sprig.",
+    "tags": [],
+    "photo": null,
+    "created": 1775610867355
   }
 ]
