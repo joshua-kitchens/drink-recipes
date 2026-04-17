@@ -304,5 +304,59 @@
     "tags": [],
     "photo": null,
     "created": 1776457068876
+  },
+  {
+    "id": "mo3dr36o6518uzfsa6m",
+    "name": "Zombie",
+    "spirit": "Rum",
+    "category": "Modern Tiki",
+    "glass": "Tiki Mug",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "1.5 oz",
+        "name": "Jamaican"
+      },
+      {
+        "amount": "1 oz",
+        "name": "151 Demerara"
+      },
+      {
+        "amount": "1.5 oz",
+        "name": "\"Gold\" Cuban/Puerto Rican rum"
+      },
+      {
+        "amount": ".5",
+        "name": "oz Falernum"
+      },
+      {
+        "amount": ".25",
+        "name": "grapefruit juice"
+      },
+      {
+        "amount": ".25",
+        "name": "cinnamon syrup"
+      },
+      {
+        "amount": ".75",
+        "name": "lime juice"
+      },
+      {
+        "amount": "1 sp",
+        "name": "Grenadine"
+      },
+      {
+        "amount": "1 dash",
+        "name": "bitters"
+      },
+      {
+        "amount": "2 dash",
+        "name": "absyinthe"
+      }
+    ],
+    "instructions": "Add all ingredients to mixing tin. Flash blend or shake with crushed/pebble ice. Dirty dump into favorite Zombie glass, or double old fashioned or Collins glass. Top with ice, if needed. Garnish with mint sprig.",
+    "tags": [],
+    "photo": null,
+    "created": 1776458883552
   }
 ]
