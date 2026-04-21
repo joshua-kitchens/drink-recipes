@@ -360,5 +360,35 @@
     "photo": null,
     "created": 1776458883552,
     "pinned": true
+  },
+  {
+    "id": "mo9992gbizvp50lkys",
+    "name": "Cosmo",
+    "spirit": "Vodka",
+    "category": "Other",
+    "glass": "Coupe",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "1.5 oz",
+        "name": "Vodka"
+      },
+      {
+        "amount": ".75 oz",
+        "name": "Curaçao"
+      },
+      {
+        "amount": ".75 oz",
+        "name": "Lime juice"
+      },
+      {
+        "amount": ".5 oz",
+        "name": "Cranberry juice"
+      }
+    ],
+    "instructions": "Put ingredients in a shaker with ice\nShake to combine\nPour into a chilled glass",
+    "tags": [],
+    "photo": null,
+    "created": 1776814121387
   }
 ]
