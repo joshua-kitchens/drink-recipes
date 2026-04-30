@@ -413,5 +413,35 @@
     "tags": [],
     "photo": null,
     "created": 1777572020824
+  },
+  {
+    "id": "molsjwkl5nurqr2jqae",
+    "name": "Tom Collins",
+    "spirit": "Gin",
+    "category": "Other",
+    "glass": "Highball",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "2 oz",
+        "name": "Gin or Vodka"
+      },
+      {
+        "amount": ".75",
+        "name": "Fresh Lemon Juic"
+      },
+      {
+        "amount": ".5 oz",
+        "name": "simple"
+      },
+      {
+        "amount": "",
+        "name": "Soda"
+      }
+    ],
+    "instructions": "mix in glass top with soda water",
+    "tags": [],
+    "photo": null,
+    "created": 1777572133797
   }
 ]
