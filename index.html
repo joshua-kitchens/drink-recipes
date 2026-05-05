@@ -1151,6 +1151,7 @@ select option { background: #0d4a38; color: var(--cream); }
       </div>
     </div>
     <div class="modal-footer">
+      <button class="btn btn-danger" id="fDeleteBtn" style="display:none;margin-right:auto;" onclick="deleteEditing()">Delete</button>
       <button class="btn btn-ghost" onclick="closeForm()">Cancel</button>
       <button class="btn btn-primary" onclick="saveRecipe()">Save Libation</button>
     </div>
@@ -1169,7 +1170,6 @@ select option { background: #0d4a38; color: var(--cream); }
       <div class="detail-actions">
         <button class="btn btn-ghost" id="dPinBtn" style="padding:0.35rem 0.8rem;font-size:0.66rem;" onclick="togglePin(viewingId)">📌 Pin</button>
         <button class="btn btn-ghost" style="padding:0.35rem 0.8rem;font-size:0.66rem;" onclick="editCurrent()">Edit</button>
-        <button class="btn btn-danger" style="padding:0.35rem 0.8rem;font-size:0.66rem;" onclick="deleteCurrent()">Delete</button>
         <button class="close-btn" onclick="closeDetail()">×</button>
       </div>
     </div>
@@ -1506,6 +1506,7 @@ function openAdd() {
   document.getElementById('photoDrop').style.display = 'block';
   document.getElementById('ingList').innerHTML = '';
   addIngRow();
+  document.getElementById('fDeleteBtn').style.display = 'none';
   document.getElementById('formOverlay').style.display = 'flex';
 }
 
@@ -1534,6 +1535,7 @@ function openEdit(id) {
   list.innerHTML = '';
   (r.ingredients||[]).forEach(i => addIngRow(i.amount, i.name));
   if (!r.ingredients?.length) addIngRow();
+  document.getElementById('fDeleteBtn').style.display = '';
   document.getElementById('formOverlay').style.display = 'flex';
 }
 
@@ -1615,6 +1617,11 @@ function deleteCurrent() {
   if (!confirm('Remove this libation from the Tome?')) return;
   recipes = recipes.filter(r => r.id!==viewingId);
   save(); closeDetail(); render();
+}
+function deleteEditing() {
+  if (!confirm('Remove this libation from the Tome?')) return;
+  recipes = recipes.filter(r => r.id!==editingId);
+  save(); closeForm(); render();
 }
 
 function bgClose(id) {
