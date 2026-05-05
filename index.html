@@ -715,10 +715,68 @@ textarea { min-height: 85px; }
   line-height: 1.75;
   color: var(--muted);
   margin-bottom: 1.1rem;
-  white-space: pre-wrap;
 }
+.method-text p { margin: 0 0 0.6em; }
+.method-text ul, .method-text ol { margin: 0 0 0.6em 1.25em; padding: 0; }
+.method-text li { margin-bottom: 0.2em; }
+.method-text h4, .method-text h5 { color: var(--gold); margin: 0.75em 0 0.25em; font-family: 'Josefin Sans', sans-serif; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.78rem; }
+.method-text strong { color: var(--cream); }
+.method-text em { color: var(--gold-light); font-style: italic; }
+.method-text code { background: rgba(255,255,255,0.08); border-radius: 3px; padding: 0.1em 0.35em; font-size: 0.85em; }
 
 .detail-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem; }
+
+.detail-timestamps {
+  margin-top: 1.25rem;
+  font-size: 0.72rem;
+  color: var(--teal);
+  letter-spacing: 0.03em;
+  font-family: 'Josefin Sans', sans-serif;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.share-wrap { position: relative; }
+.share-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px var(--shadow);
+  min-width: 180px;
+  z-index: 200;
+  overflow: hidden;
+}
+.share-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.6rem 1rem;
+  background: none;
+  border: none;
+  color: var(--cream);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.share-menu button:hover { background: rgba(255,255,255,0.07); }
+
+#printFrame { display: none; }
+
+@media print {
+  body > *:not(#printFrame) { display: none !important; }
+  #printFrame {
+    display: block !important;
+    position: static;
+    width: 100%;
+    font-family: Georgia, serif;
+    color: #111;
+  }
+}
 
 /* ── CARD PHOTO ── */
 .card-photo {
@@ -1084,15 +1142,29 @@ select option { background: #0d4a38; color: var(--cream); }
           <label>Category</label>
           <select id="fCategory">
             <option value="">— Select —</option>
-            <option>Tiki Classic</option>
-            <option>Modern Tiki</option>
-            <option>Tropical</option>
-            <option>Punch</option>
+            <option>Buck / Mule</option>
+            <option>Cobbler</option>
+            <option>Collins</option>
+            <option>Egg-Based</option>
+            <option>Fizz</option>
+            <option>Flip</option>
             <option>Frozen</option>
-            <option>Sour</option>
-            <option>Stirred</option>
-            <option>Shot / Shooter</option>
+            <option>Highball</option>
+            <option>Hot Cocktail</option>
+            <option>Julep</option>
+            <option>Modern Tiki</option>
             <option>Non-Alcoholic</option>
+            <option>Punch</option>
+            <option>Shot / Shooter</option>
+            <option>Sling</option>
+            <option>Smash</option>
+            <option>Sour</option>
+            <option>Spirit-Forward</option>
+            <option>Spritz / Aperitif</option>
+            <option>Stirred</option>
+            <option>Tiki Classic</option>
+            <option>Tropical</option>
+            <option>Wine-Based</option>
             <option>Other</option>
           </select>
         </div>
@@ -1170,6 +1242,13 @@ select option { background: #0d4a38; color: var(--cream); }
       <div class="detail-actions">
         <button class="btn btn-ghost" id="dPinBtn" style="padding:0.35rem 0.8rem;font-size:0.66rem;" onclick="togglePin(viewingId)">📌 Pin</button>
         <button class="btn btn-ghost" style="padding:0.35rem 0.8rem;font-size:0.66rem;" onclick="editCurrent()">Edit</button>
+        <div class="share-wrap">
+          <button class="btn btn-ghost" style="padding:0.35rem 0.8rem;font-size:0.66rem;" onclick="toggleShareMenu()">Share</button>
+          <div class="share-menu" id="shareMenu" style="display:none">
+            <button onclick="printRecipe()">🖨 Print / Save as PDF</button>
+            <button onclick="copyRecipeText()">📋 Copy as Text</button>
+          </div>
+        </div>
         <button class="close-btn" onclick="closeDetail()">×</button>
       </div>
     </div>
@@ -1181,6 +1260,7 @@ select option { background: #0d4a38; color: var(--cream); }
       <div class="section-title">🌺 Method</div>
       <div class="method-text" id="dMethod"></div>
       <div class="detail-tags" id="dTags"></div>
+      <div class="detail-timestamps" id="dTimestamps"></div>
     </div>
   </div>
 </div>
@@ -1571,7 +1651,8 @@ function saveRecipe() {
     instructions: document.getElementById('fMethod').value.trim(),
     tags: document.getElementById('fTags').value.split(',').map(t=>t.trim()).filter(Boolean),
     photo: currentPhotoData || null,
-    created: editingId ? (recipes.find(r=>r.id===editingId)?.created||Date.now()) : Date.now()
+    created: editingId ? (recipes.find(r=>r.id===editingId)?.created||Date.now()) : Date.now(),
+    updated: editingId ? Date.now() : null
   };
 
   recipes = editingId ? recipes.map(r => r.id===editingId ? recipe : r) : [...recipes, recipe];
@@ -1589,7 +1670,7 @@ function openDetail(id) {
   document.getElementById('dCat').textContent = r.spirit||'';
   document.getElementById('dName').textContent = r.name;
   document.getElementById('dDesc').textContent = r.desc||'';
-  document.getElementById('dMethod').textContent = r.instructions||'—';
+  document.getElementById('dMethod').innerHTML = parseMarkdown(r.instructions||'—');
   const badges = [];
   if (r.category) badges.push(`<span class="meta-badge badge-category">${esc(r.category)}</span>`);
   if (r.glass) badges.push(`<span class="meta-badge badge-glass">🥃 ${esc(r.glass)}</span>`);
@@ -1600,6 +1681,12 @@ function openDetail(id) {
   document.getElementById('dTags').innerHTML = (r.tags||[]).map(t =>
     `<span class="card-tag">${esc(t)}</span>`).join('');
   document.getElementById('dPinBtn').textContent = r.pinned ? '📌 Unpin' : '📌 Pin';
+  const fmtDate = ts => ts ? new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) : null;
+  const created = fmtDate(r.created);
+  const updated = fmtDate(r.updated);
+  document.getElementById('dTimestamps').textContent =
+    (created ? `Created ${created}` : '') + (updated ? ` · Edited ${updated}` : '');
+  document.getElementById('shareMenu').style.display = 'none';
   document.getElementById('detailOverlay').style.display = 'flex';
 }
 
@@ -1741,6 +1828,110 @@ function importData(e) {
 
 // ── INIT ──
 loadFromGitHub();
+
+// ── MARKDOWN ──
+function parseMarkdown(text) {
+  if (!text) return '';
+  const lines = text.split('\n');
+  let html = '';
+  let inUl = false, inOl = false;
+  for (let i = 0; i < lines.length; i++) {
+    let line = lines[i];
+    // headings
+    if (/^## (.+)/.test(line))      { if(inUl){html+='</ul>';inUl=false;}if(inOl){html+='</ol>';inOl=false;} html+=`<h5>${inline(line.replace(/^## /,''))}</h5>`; continue; }
+    if (/^# (.+)/.test(line))       { if(inUl){html+='</ul>';inUl=false;}if(inOl){html+='</ol>';inOl=false;} html+=`<h4>${inline(line.replace(/^# /,''))}</h4>`; continue; }
+    // unordered list
+    if (/^[-*] (.+)/.test(line))    { if(!inUl){if(inOl){html+='</ol>';inOl=false;}html+='<ul>';inUl=true;} html+=`<li>${inline(line.replace(/^[-*] /,''))}</li>`; continue; }
+    // ordered list
+    if (/^\d+\. (.+)/.test(line))   { if(!inOl){if(inUl){html+='</ul>';inUl=false;}html+='<ol>';inOl=true;} html+=`<li>${inline(line.replace(/^\d+\. /,''))}</li>`; continue; }
+    // close lists
+    if (inUl) { html+='</ul>'; inUl=false; }
+    if (inOl) { html+='</ol>'; inOl=false; }
+    // blank line = paragraph break
+    if (!line.trim()) { html+='<br>'; continue; }
+    html+=`<p>${inline(line)}</p>`;
+  }
+  if (inUl) html+='</ul>';
+  if (inOl) html+='</ol>';
+  return html;
+}
+function inline(s) {
+  return s
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g,'<em>$1</em>')
+    .replace(/_(.+?)_/g,'<em>$1</em>')
+    .replace(/`(.+?)`/g,'<code>$1</code>');
+}
+
+// ── SHARE ──
+function toggleShareMenu() {
+  const m = document.getElementById('shareMenu');
+  m.style.display = m.style.display === 'none' ? 'block' : 'none';
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest('.share-wrap')) {
+    const m = document.getElementById('shareMenu');
+    if (m) m.style.display = 'none';
+  }
+});
+
+function printRecipe() {
+  document.getElementById('shareMenu').style.display = 'none';
+  const r = recipes.find(x => x.id === viewingId);
+  if (!r) return;
+  const fmtDate = ts => ts ? new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) : null;
+  const ingHtml = (r.ingredients||[]).map(i =>
+    `<li><strong>${esc(i.amount)}</strong> ${esc(i.name)}</li>`).join('') || '<li>None listed.</li>';
+  const tagsHtml = (r.tags||[]).map(t=>`<span style="display:inline-block;background:#eee;border-radius:4px;padding:2px 8px;font-size:0.78em;margin:2px;">${esc(t)}</span>`).join(' ');
+  const created = fmtDate(r.created);
+  const updated = fmtDate(r.updated);
+  const timestamps = [created ? `Created ${created}` : '', updated ? `Edited ${updated}` : ''].filter(Boolean).join(' · ');
+  let frame = document.getElementById('printFrame');
+  if (!frame) { frame = document.createElement('div'); frame.id = 'printFrame'; document.body.appendChild(frame); }
+  frame.innerHTML = `
+    <div style="max-width:680px;margin:0 auto;font-family:Georgia,serif;color:#111;">
+      ${r.photo ? `<img src="${r.photo}" style="width:100%;max-height:280px;object-fit:cover;border-radius:8px;margin-bottom:1.5em;">` : ''}
+      <div style="font-family:Arial,sans-serif;font-size:0.72em;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin-bottom:0.3em;">${esc(r.spirit||'')}${r.category?' · '+esc(r.category):''}</div>
+      <h1 style="font-size:2em;margin:0 0 0.2em;">${esc(r.name)}</h1>
+      ${r.glass ? `<div style="font-size:0.85em;color:#666;margin-bottom:1em;">🥃 ${esc(r.glass)}</div>` : ''}
+      ${r.desc ? `<p style="font-style:italic;color:#555;margin-bottom:1.5em;">${esc(r.desc)}</p>` : ''}
+      <h3 style="font-family:Arial,sans-serif;font-size:0.78em;text-transform:uppercase;letter-spacing:0.1em;border-bottom:1px solid #ddd;padding-bottom:0.3em;margin-bottom:0.6em;">Ingredients</h3>
+      <ul style="line-height:1.8;margin:0 0 1.5em;padding-left:1.2em;">${ingHtml}</ul>
+      <h3 style="font-family:Arial,sans-serif;font-size:0.78em;text-transform:uppercase;letter-spacing:0.1em;border-bottom:1px solid #ddd;padding-bottom:0.3em;margin-bottom:0.6em;">Method</h3>
+      <div style="line-height:1.75;margin-bottom:1.5em;">${parseMarkdown(r.instructions||'')}</div>
+      ${r.tags?.length ? `<div style="margin-top:1em;">${tagsHtml}</div>` : ''}
+      ${timestamps ? `<div style="margin-top:1.5em;font-size:0.72em;color:#aaa;font-family:Arial,sans-serif;">${timestamps}</div>` : ''}
+    </div>`;
+  window.print();
+}
+
+function copyRecipeText() {
+  document.getElementById('shareMenu').style.display = 'none';
+  const r = recipes.find(x => x.id === viewingId);
+  if (!r) return;
+  const fmtDate = ts => ts ? new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) : null;
+  const lines = [
+    r.name,
+    r.spirit && r.category ? `${r.spirit} · ${r.category}` : (r.spirit||r.category||''),
+    r.glass ? `Glassware: ${r.glass}` : '',
+    '',
+    r.desc || '',
+    '',
+    'INGREDIENTS',
+    ...(r.ingredients||[]).map(i => `  ${i.amount}  ${i.name}`),
+    '',
+    'METHOD',
+    r.instructions || '',
+    '',
+    r.tags?.length ? `Tags: ${r.tags.join(', ')}` : '',
+    [fmtDate(r.created) ? `Created ${fmtDate(r.created)}` : '', fmtDate(r.updated) ? `Edited ${fmtDate(r.updated)}` : ''].filter(Boolean).join(' · ')
+  ].filter(l => l !== undefined).join('\n').replace(/\n{3,}/g, '\n\n').trim();
+  navigator.clipboard.writeText(lines).then(() => {
+    const btn = document.querySelector('.share-menu button:last-child');
+    if (btn) { btn.textContent = '✓ Copied!'; setTimeout(()=>{ btn.textContent='📋 Copy as Text'; },2000); }
+  });
+}
 </script>
 <!-- GITHUB SETTINGS MODAL -->
 <div class="overlay" id="settingsOverlay" style="display:none" onclick="bgClose('settingsOverlay')">
