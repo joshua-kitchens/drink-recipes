@@ -765,18 +765,6 @@ textarea { min-height: 85px; }
 }
 .share-menu button:hover { background: rgba(255,255,255,0.07); }
 
-#printFrame { display: none; }
-
-@media print {
-  body > *:not(#printFrame) { display: none !important; }
-  #printFrame {
-    display: block !important;
-    position: static;
-    width: 100%;
-    font-family: Georgia, serif;
-    color: #111;
-  }
-}
 
 /* ── CARD PHOTO ── */
 .card-photo {
@@ -1882,28 +1870,46 @@ function printRecipe() {
   if (!r) return;
   const fmtDate = ts => ts ? new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) : null;
   const ingHtml = (r.ingredients||[]).map(i =>
-    `<li><strong>${esc(i.amount)}</strong> ${esc(i.name)}</li>`).join('') || '<li>None listed.</li>';
+    `<li><strong>${esc(i.amount||'')}</strong>${i.amount?' ':''} ${esc(i.name||'')}</li>`).join('') || '<li>None listed.</li>';
   const tagsHtml = (r.tags||[]).map(t=>`<span style="display:inline-block;background:#eee;border-radius:4px;padding:2px 8px;font-size:0.78em;margin:2px;">${esc(t)}</span>`).join(' ');
   const created = fmtDate(r.created);
   const updated = fmtDate(r.updated);
   const timestamps = [created ? `Created ${created}` : '', updated ? `Edited ${updated}` : ''].filter(Boolean).join(' · ');
-  let frame = document.getElementById('printFrame');
-  if (!frame) { frame = document.createElement('div'); frame.id = 'printFrame'; document.body.appendChild(frame); }
-  frame.innerHTML = `
-    <div style="max-width:680px;margin:0 auto;font-family:Georgia,serif;color:#111;">
-      ${r.photo ? `<img src="${r.photo}" style="width:100%;max-height:280px;object-fit:cover;border-radius:8px;margin-bottom:1.5em;">` : ''}
-      <div style="font-family:Arial,sans-serif;font-size:0.72em;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin-bottom:0.3em;">${esc(r.spirit||'')}${r.category?' · '+esc(r.category):''}</div>
-      <h1 style="font-size:2em;margin:0 0 0.2em;">${esc(r.name)}</h1>
-      ${r.glass ? `<div style="font-size:0.85em;color:#666;margin-bottom:1em;">🥃 ${esc(r.glass)}</div>` : ''}
-      ${r.desc ? `<p style="font-style:italic;color:#555;margin-bottom:1.5em;">${esc(r.desc)}</p>` : ''}
-      <h3 style="font-family:Arial,sans-serif;font-size:0.78em;text-transform:uppercase;letter-spacing:0.1em;border-bottom:1px solid #ddd;padding-bottom:0.3em;margin-bottom:0.6em;">Ingredients</h3>
-      <ul style="line-height:1.8;margin:0 0 1.5em;padding-left:1.2em;">${ingHtml}</ul>
-      <h3 style="font-family:Arial,sans-serif;font-size:0.78em;text-transform:uppercase;letter-spacing:0.1em;border-bottom:1px solid #ddd;padding-bottom:0.3em;margin-bottom:0.6em;">Method</h3>
-      <div style="line-height:1.75;margin-bottom:1.5em;">${parseMarkdown(r.instructions||'')}</div>
-      ${r.tags?.length ? `<div style="margin-top:1em;">${tagsHtml}</div>` : ''}
-      ${timestamps ? `<div style="margin-top:1.5em;font-size:0.72em;color:#aaa;font-family:Arial,sans-serif;">${timestamps}</div>` : ''}
-    </div>`;
-  window.print();
+  const methodHtml = parseMarkdown(r.instructions||'');
+  const win = window.open('', '_blank');
+  if (!win) return;
+  win.document.write(`<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${esc(r.name)}</title>
+<style>
+  body { margin: 0; padding: 2em; font-family: Georgia, serif; color: #111; max-width: 680px; margin: 0 auto; }
+  h1 { font-size: 2em; margin: 0 0 0.2em; }
+  h3 { font-family: Arial, sans-serif; font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid #ddd; padding-bottom: 0.3em; margin: 1.5em 0 0.6em; }
+  ul { line-height: 1.8; margin: 0 0 1.5em; padding-left: 1.2em; }
+  li { margin-bottom: 0.15em; }
+  .method { line-height: 1.75; margin-bottom: 1.5em; }
+  .method p { margin: 0 0 0.6em; }
+  .method ul, .method ol { margin: 0 0 0.6em 1.25em; padding: 0; }
+  img { width: 100%; max-height: 280px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5em; display: block; }
+  @media print { body { padding: 0; } }
+</style>
+</head><body>
+  ${r.photo ? `<img src="${r.photo}" alt="${esc(r.name)}">` : ''}
+  <div style="font-family:Arial,sans-serif;font-size:0.72em;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin-bottom:0.3em;">${esc(r.spirit||'')}${r.category?' · '+esc(r.category):''}</div>
+  <h1>${esc(r.name)}</h1>
+  ${r.glass ? `<div style="font-size:0.85em;color:#666;margin-bottom:1em;">🥃 ${esc(r.glass)}</div>` : ''}
+  ${r.desc ? `<p style="font-style:italic;color:#555;margin-bottom:1.5em;">${esc(r.desc)}</p>` : ''}
+  <h3>Ingredients</h3>
+  <ul>${ingHtml}</ul>
+  <h3>Method</h3>
+  <div class="method">${methodHtml}</div>
+  ${r.tags?.length ? `<div style="margin-top:1em;">${tagsHtml}</div>` : ''}
+  ${timestamps ? `<div style="margin-top:1.5em;font-size:0.72em;color:#aaa;font-family:Arial,sans-serif;">${timestamps}</div>` : ''}
+<script>window.onload=()=>{window.print();}<\/script>
+</body></html>`);
+  win.document.close();
 }
 
 function copyRecipeText() {
