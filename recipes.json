@@ -479,5 +479,40 @@
     "created": 1778448697012,
     "updated": 1778448736577,
     "pinned": true
+  },
+  {
+    "id": "mp0ar6ziw93hh5r8rrb",
+    "name": "Oaxacan Old Fashioned",
+    "spirit": "",
+    "category": "Spirit-Forward",
+    "glass": "Highball",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "1.5 oz",
+        "name": "tequila"
+      },
+      {
+        "amount": ".5 oz",
+        "name": "mezcal"
+      },
+      {
+        "amount": "1 tsp",
+        "name": "Agave Nectar"
+      },
+      {
+        "amount": "2 dash",
+        "name": "Angostura Bitters"
+      },
+      {
+        "amount": "1 dash",
+        "name": "Mole bitters"
+      }
+    ],
+    "instructions": "1. Chill your glass: Place a rocks glass in the freezer, or fill it with ice water to chill while you build the drink.\n2. Build in the glass: Add 1 teaspoons agave nectar (diluted 1:1 with water), 2 dashes Angostura bitters, and 1 dash Bittermens Xocolatl Mole bitters directly to a mixing glass. Add 1.5 fluid ounces reposado tequila (Espolón or Olmeca Altos) and 0.5 fluid ounces mezcal (Del Maguey Vida or Banhez). Fill with large ice cubes.\n3. Stir: Stir slowly and deliberately for about 30 seconds \n00:30 — you want dilution and chill, not aeration. This drink should be silky, not watery.\n4. Strain & express: Dump the ice water from your rocks glass and add one large ice cube. Strain the cocktail over it. Take 1 large orange peel, for garnish, hold it skin-side down over the glass, and flame it with a match or lighter — squeeze to express the oils through the flame, then rub the peel around the rim and drop it in.",
+    "tags": [],
+    "photo": null,
+    "created": 1778449233438,
+    "updated": null
   }
 ]
