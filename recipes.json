@@ -516,5 +516,19 @@
     "created": 1778449233438,
     "updated": null,
     "pinned": true
+  },
+  {
+    "id": "mp0b2rkvorc5s49b09n",
+    "name": "Bay Breeze",
+    "spirit": "vodka",
+    "category": "Tropical",
+    "glass": "Collins",
+    "desc": "1\nIce your glass: Fill a highball glass or rocks glass with ice.\n2\nShake: Add 1.5 fluid ounces vodka, 3 fluid ounces pineapple juice (fresh or good quality), 1 fluid ounces cranberry juice, and 0.5 fluid ounces fresh lime juice to a shaker with ice. Shake for about 10 seconds \n00:10\n — just enough to chill and combine.\n3\nStrain & garnish: Strain into your iced glass. Garnish with 1 lime wheel, for garnish on the rim.",
+    "ingredients": [],
+    "instructions": "",
+    "tags": [],
+    "photo": null,
+    "created": 1778449773343,
+    "updated": null
   }
 ]
