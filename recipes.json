@@ -476,6 +476,7 @@
     ],
     "photo": null,
     "created": 1778448697012,
-    "updated": 1778448736577
+    "updated": 1778448736577,
+    "pinned": true
   }
 ]
