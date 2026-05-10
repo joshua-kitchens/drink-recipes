@@ -468,10 +468,14 @@
         "name": "simple syrup"
       }
     ],
-    "instructions": "**Garnish: Lime or Cucumber**\n\n1. Chill your glass: Put a coupe or chilled rocks glass in the freezer while you prep.\n2. Muddle the cucumber: Add 4 English cucumber slices (¼ inch thick) to the bottom of your shaker. Muddle firmly but not aggressively — you want the juice and fresh flavor, not pulp. About 8–10 presses.\n3. Build & shake: Add 2 fluid ounces London Dry gin (Tanqueray, Beefeater, or Hendrick's), 0.8 fluid ounces fresh lime juice, and 0.5 fluid ounces simple syrup (1:1) to the shaker. Fill with ice and shake hard for 12–13 seconds \n00:13\n — cucumber needs a vigorous shake to fully integrate.\n4. Double-strain & serve: Fine-strain into your chilled glass to catch all cucumber solids. Serve up in a coupe, or over a large rock if you prefer it long. Garnish with a thin cucumber wheel on the rim.",
-    "tags": [],
+    "instructions": "**Garnish: Lime or Cucumber**\n\n1. Chill your glass: Put a coupe or chilled rocks glass in the freezer while you prep.\n2. Muddle the cucumber: Add 4 English cucumber slices (¼ inch thick) to the bottom of your shaker. Muddle firmly but not aggressively — you want the juice and fresh flavor, not pulp. About 8–10 presses.\n3. Build & shake: Add 2 fluid ounces London Dry gin (Tanqueray, Beefeater, or Hendrick's), 0.8 fluid ounces fresh lime juice, and 0.5 fluid ounces simple syrup (1:1) to the shaker. Fill with ice and shake hard for 12–13 seconds \n00:13 — cucumber needs a vigorous shake to fully integrate.\n4. Double-strain & serve: Fine-strain into your chilled glass to catch all cucumber solids. Serve up in a coupe, or over a large rock if you prefer it long. Garnish with a thin cucumber wheel on the rim.",
+    "tags": [
+      "gin",
+      "cucumber",
+      "lime"
+    ],
     "photo": null,
     "created": 1778448697012,
-    "updated": null
+    "updated": 1778448736577
   }
 ]
