@@ -574,6 +574,7 @@
     "tags": [],
     "photo": null,
     "created": 1778449973931,
-    "updated": null
+    "updated": null,
+    "pinned": true
   }
 ]
