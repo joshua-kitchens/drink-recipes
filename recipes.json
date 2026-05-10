@@ -543,5 +543,36 @@
     "photo": null,
     "created": 1778449773343,
     "updated": 1778449829837
+  },
+  {
+    "id": "mp0b72crbm8907xtgdu",
+    "name": "Hemingway Daiquiri",
+    "spirit": "Rum",
+    "category": "",
+    "glass": "Coupe",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "2 oz",
+        "name": "White Rum"
+      },
+      {
+        "amount": ".8 oz",
+        "name": "Lime Juice"
+      },
+      {
+        "amount": ".5 oz",
+        "name": "Grapefruit Juice (sub oj or pineapple)"
+      },
+      {
+        "amount": ".5 oz",
+        "name": "maraschino liqueur"
+      }
+    ],
+    "instructions": "1\nChill your glass: Chill a coupe or Nick & Nora glass in the freezer while you prep.\n2\nJuice your citrus: Juice both 0.8 fluid ounces fresh lime juice and 0.5 fluid ounces fresh grapefruit juice fresh. This drink lives or dies on fresh citrus — don’t cut corners here.\n3\nShake: Add 2 fluid ounces white rum (Bacardi Superior or Plantation 3 Star), 0.8 fluid ounces fresh lime juice, 0.5 fluid ounces fresh grapefruit juice, and 0.5 fluid ounces maraschino liqueur (Luxardo) to a shaker with plenty of ice. Shake hard for 12–13 seconds \n00:13\n — grapefruit benefits from a vigorous shake.\n4\nStrain & garnish: Double-strain into your chilled coupe. Express 1 grapefruit peel or lime wheel, for garnish over the top and either rest it on the rim or drop it in.\nNotes",
+    "tags": [],
+    "photo": null,
+    "created": 1778449973931,
+    "updated": null
   }
 ]
