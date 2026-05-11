@@ -577,5 +577,36 @@
     "created": 1778449973931,
     "updated": null,
     "pinned": true
+  },
+  {
+    "id": "mp0htbr0wjhso81gsus",
+    "name": "Cosmo",
+    "spirit": "Vodka",
+    "category": "Other",
+    "glass": "Martini",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "2 oz",
+        "name": "Vodka"
+      },
+      {
+        "amount": "1 oz",
+        "name": "Curacao"
+      },
+      {
+        "amount": "1 oz",
+        "name": "cranberry juice"
+      },
+      {
+        "amount": "1/2",
+        "name": "Fresh Squeezed Lime Juice"
+      }
+    ],
+    "instructions": "",
+    "tags": [],
+    "photo": null,
+    "created": 1778461090236,
+    "updated": null
   }
 ]
