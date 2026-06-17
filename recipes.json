@@ -637,5 +637,40 @@
     "created": 1781735678764,
     "updated": null,
     "pinned": true
+  },
+  {
+    "id": "mqioku3vdmbqfrq49w",
+    "name": "Mojito",
+    "spirit": "Rum",
+    "category": "Highball",
+    "glass": "Highball",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "2 oz",
+        "name": "Rum"
+      },
+      {
+        "amount": "1/2",
+        "name": "Lime"
+      },
+      {
+        "amount": "1",
+        "name": "Sugar Cube"
+      },
+      {
+        "amount": "4 oz",
+        "name": "Soda"
+      },
+      {
+        "amount": "1",
+        "name": "Mint"
+      }
+    ],
+    "instructions": "",
+    "tags": [],
+    "photo": null,
+    "created": 1781737624939,
+    "updated": null
   }
 ]
