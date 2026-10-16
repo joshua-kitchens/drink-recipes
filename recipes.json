@@ -36,7 +36,7 @@
     ],
     "photo": null,
     "created": 1775523942430,
-    "pinned": true
+    "pinned": false
   },
   {
     "id": "mnnzq21pe7a5vpt9m3i",
@@ -123,7 +123,8 @@
       "coconut"
     ],
     "photo": null,
-    "created": 1775598501803
+    "created": 1775598501803,
+    "pinned": true
   },
   {
     "id": "mnp62ekcfrgnp7gtqn6",
@@ -143,14 +144,14 @@
       },
       {
         "amount": ".5 oz",
-        "name": "triple sec"
+        "name": "triple sec/cointreau/curaçao"
       },
       {
         "amount": ".5 oz",
         "name": "simple syrup"
       }
     ],
-    "instructions": "1\nSugar the rim: Rub a lemon wedge around the rim of a chilled martini glass, then dip the rim in 1 tablespoons sugar (for rim) to coat. Set aside.\n2\nShake: Combine 2 fluid ounces citrus vodka (or plain vodka), 0.8 fluid ounces fresh lemon juice, 0.5 fluid ounces triple sec or Cointreau, and 0.5 fluid ounces simple syrup in a cocktail shaker filled with ice. Shake vigorously for about 15 seconds \n00:15\n.\n3\nStrain & garnish: Strain into the prepared glass. Garnish with 1 pieces lemon wheel or twist (for garnish).",
+    "instructions": "1.  Sugar the rim: Rub a lemon wedge around the rim of a chilled martini glass, then dip the rim in 1 tablespoons sugar (for rim) to coat. Set aside.\n2. Shake: Combine 2 fluid ounces citrus vodka (or plain vodka), 0.8 fluid ounces fresh lemon juice, 0.5 fluid ounces triple sec or Cointreau, and 0.5 fluid ounces simple syrup in a cocktail shaker filled with ice. Shake vigorously for about 15 seconds\n3. Strain & garnish: Strain into the prepared glass. Garnish with 1 pieces lemon wheel or twist (for garnish).\n\n'Notes'\n\nThe type of orange liquor will change the sweetness of this drink. Triple sec is the sweetest option. I prefer a nice drier Curaçao. It doesn't have to be super expensive.",
     "tags": [
       "vodka",
       "classic",
@@ -158,7 +159,8 @@
     ],
     "photo": null,
     "created": 1775599448124,
-    "pinned": true
+    "updated": 1777944123431,
+    "pinned": false
   },
   {
     "id": "mnp655ro3mlb88rl4cp",
@@ -279,8 +281,8 @@
     "id": "mo3co6z02aeu6xc095t",
     "name": "Jungle Bird",
     "spirit": "Rum",
-    "category": "Tiki Classic",
-    "glass": "Tiki Mug",
+    "category": "Modern Tiki",
+    "glass": "Highball",
     "desc": "",
     "ingredients": [
       {
@@ -298,13 +300,18 @@
       {
         "amount": ".5 oz",
         "name": "Lime Juice (Fresh)"
+      },
+      {
+        "amount": ".5 oz",
+        "name": "demerara syrup"
       }
     ],
     "instructions": "Add the rum, Campari, pineapple juice, lime juice, and demerara syrup into a shaker with ice and shake until well-chilled.\n\nStrain into a rocks glass over fresh ice.\n\nGarnish with a pineapple wedge.",
     "tags": [],
     "photo": null,
     "created": 1776457068876,
-    "pinned": true
+    "updated": 1778448315819,
+    "pinned": false
   },
   {
     "id": "mo3dr36o6518uzfsa6m",
@@ -427,7 +434,7 @@
       },
       {
         "amount": "4 dashs",
-        "name": "Peychaudâs bitters"
+        "name": "Peychaud's bitters"
       },
       {
         "amount": "1 dash",
@@ -441,6 +448,263 @@
     "instructions": "Muddle cube and bitter in mixing glass. Add rye with ice. Stir until chilled. Pour into chilled glass.",
     "tags": [],
     "photo": null,
-    "created": 1777659042443
+    "created": 1777659042443,
+    "pinned": false
+  },
+  {
+    "id": "mp0afp2so9eqpzu2fxn",
+    "name": "Gimlet",
+    "spirit": "Gin",
+    "category": "Other",
+    "glass": "Coupe",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "2 oz",
+        "name": "Gin"
+      },
+      {
+        "amount": "1/2",
+        "name": "Fresh Lime"
+      },
+      {
+        "amount": ".5 oz",
+        "name": "simple syrup"
+      }
+    ],
+    "instructions": "**Garnish: Lime or Cucumber**\n\n1. Chill your glass: Put a coupe or chilled rocks glass in the freezer while you prep.\n2. Muddle the cucumber: Add 4 English cucumber slices (¼ inch thick) to the bottom of your shaker. Muddle firmly but not aggressively — you want the juice and fresh flavor, not pulp. About 8–10 presses.\n3. Build & shake: Add 2 fluid ounces London Dry gin (Tanqueray, Beefeater, or Hendrick's), 0.8 fluid ounces fresh lime juice, and 0.5 fluid ounces simple syrup (1:1) to the shaker. Fill with ice and shake hard for 12–13 seconds \n00:13 — cucumber needs a vigorous shake to fully integrate.\n4. Double-strain & serve: Fine-strain into your chilled glass to catch all cucumber solids. Serve up in a coupe, or over a large rock if you prefer it long. Garnish with a thin cucumber wheel on the rim.",
+    "tags": [
+      "gin",
+      "cucumber",
+      "lime"
+    ],
+    "photo": null,
+    "created": 1778448697012,
+    "updated": 1778448736577,
+    "pinned": false
+  },
+  {
+    "id": "mp0ar6ziw93hh5r8rrb",
+    "name": "Oaxacan Old Fashioned",
+    "spirit": "",
+    "category": "Spirit-Forward",
+    "glass": "Highball",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "1.5 oz",
+        "name": "tequila"
+      },
+      {
+        "amount": ".5 oz",
+        "name": "mezcal"
+      },
+      {
+        "amount": ".25",
+        "name": "Agave syrup"
+      },
+      {
+        "amount": "2 dash",
+        "name": "Angostura Bitters"
+      },
+      {
+        "amount": "1 dash",
+        "name": "Mole bitters"
+      }
+    ],
+    "instructions": "1. Chill your glass: Place a rocks glass in the freezer, or fill it with ice water to chill while you build the drink.\n2. Build in the glass: Add 1 teaspoons agave nectar (diluted 1:1 with water), 2 dashes Angostura bitters, and 1 dash Bittermens Xocolatl Mole bitters directly to a mixing glass. Add 1.5 fluid ounces reposado tequila (Espolón or Olmeca Altos) and 0.5 fluid ounces mezcal (Del Maguey Vida or Banhez). Fill with large ice cubes.\n3. Stir: Stir slowly and deliberately for about 30 seconds \n00:30 — you want dilution and chill, not aeration. This drink should be silky, not watery.\n4. Strain & express: Dump the ice water from your rocks glass and add one large ice cube. Strain the cocktail over it. Take 1 large orange peel, for garnish, hold it skin-side down over the glass, and flame it with a match or lighter — squeeze to express the oils through the flame, then rub the peel around the rim and drop it in.",
+    "tags": [],
+    "photo": null,
+    "created": 1778449233438,
+    "updated": 1778893449700,
+    "pinned": false
+  },
+  {
+    "id": "mp0b2rkvorc5s49b09n",
+    "name": "Bay Breeze",
+    "spirit": "vodka",
+    "category": "Tropical",
+    "glass": "Collins",
+    "desc": "Tropical, fruity, and effortlessly refreshing — the drink that disappears fastest at any party.",
+    "ingredients": [
+      {
+        "amount": "1.5 oz",
+        "name": "vodka"
+      },
+      {
+        "amount": "3 oz",
+        "name": "pineapple"
+      },
+      {
+        "amount": "1/2",
+        "name": "Fresh Squeezed lime"
+      }
+    ],
+    "instructions": "1\nIce your glass: Fill a highball glass or rocks glass with ice.\n2\nShake: Add 1.5 fluid ounces vodka, 3 fluid ounces pineapple juice (fresh or good quality), 1 fluid ounces cranberry juice, and 0.5 fluid ounces fresh lime juice to a shaker with ice. Shake for about 10 seconds \n00:10\n — just enough to chill and combine.\n3\nStrain & garnish: Strain into your iced glass. Garnish with 1 lime wheel, for garnish on the rim.",
+    "tags": [],
+    "photo": null,
+    "created": 1778449773343,
+    "updated": 1778449829837,
+    "pinned": false
+  },
+  {
+    "id": "mp0b72crbm8907xtgdu",
+    "name": "Hemingway Daiquiri",
+    "spirit": "Rum",
+    "category": "",
+    "glass": "Coupe",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "2 oz",
+        "name": "White Rum"
+      },
+      {
+        "amount": ".8 oz",
+        "name": "Lime Juice"
+      },
+      {
+        "amount": ".5 oz",
+        "name": "Grapefruit Juice (sub oj or pineapple)"
+      },
+      {
+        "amount": ".5 oz",
+        "name": "maraschino liqueur"
+      }
+    ],
+    "instructions": "1\nChill your glass: Chill a coupe or Nick & Nora glass in the freezer while you prep.\n2\nJuice your citrus: Juice both 0.8 fluid ounces fresh lime juice and 0.5 fluid ounces fresh grapefruit juice fresh. This drink lives or dies on fresh citrus — don't cut corners here.\n3\nShake: Add 2 fluid ounces white rum (Bacardi Superior or Plantation 3 Star), 0.8 fluid ounces fresh lime juice, 0.5 fluid ounces fresh grapefruit juice, and 0.5 fluid ounces maraschino liqueur (Luxardo) to a shaker with plenty of ice. Shake hard for 12–13 seconds \n00:13\n — grapefruit benefits from a vigorous shake.\n4\nStrain & garnish: Double-strain into your chilled coupe. Express 1 grapefruit peel or lime wheel, for garnish over the top and either rest it on the rim or drop it in.\nNotes",
+    "tags": [],
+    "photo": null,
+    "created": 1778449973931,
+    "updated": null,
+    "pinned": false
+  },
+  {
+    "id": "mp0htbr0wjhso81gsus",
+    "name": "Cosmo",
+    "spirit": "Vodka",
+    "category": "Other",
+    "glass": "Martini",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "2 oz",
+        "name": "Vodka"
+      },
+      {
+        "amount": "1 oz",
+        "name": "Curacao"
+      },
+      {
+        "amount": "1 oz",
+        "name": "cranberry juice"
+      },
+      {
+        "amount": "1/2",
+        "name": "Fresh Squeezed Lime Juice"
+      }
+    ],
+    "instructions": "",
+    "tags": [],
+    "photo": null,
+    "created": 1778461090236,
+    "updated": null,
+    "pinned": true
+  },
+  {
+    "id": "mqinf4fgk5ognwy7pll",
+    "name": "French Martini",
+    "spirit": "Vodka",
+    "category": "Other",
+    "glass": "Martini",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "1.5 oz",
+        "name": "Vodka"
+      },
+      {
+        "amount": ".5 oz",
+        "name": "Chambord"
+      },
+      {
+        "amount": "1.5 oz",
+        "name": "pineapple"
+      }
+    ],
+    "instructions": "Chill your glass: Place a coupe or martini glass in the freezer to chill while you prep.\n2\nDry shake: Add 1.5 fluid ounces vodka, 0.5 fluid ounces Chambord black raspberry liqueur, and 1.5 fluid ounces pineapple juice (fresh or good quality) to a shaker without ice. Seal and shake hard for 10 seconds \n00:10\n — this dry shake builds the foam from the pineapple juice.\n3\nShake with ice: Add ice to the shaker and shake again hard for another 12 seconds \n00:12\n to chill and dilute.\n4\nStrain & garnish: Fine-strain into your chilled glass. The frothy top should settle into a beautiful foam layer. Garnish with 1 raspberry or lemon twist, for garnish.",
+    "tags": [],
+    "photo": null,
+    "created": 1781735678764,
+    "updated": null,
+    "pinned": true
+  },
+  {
+    "id": "mqioku3vdmbqfrq49w",
+    "name": "Mojito",
+    "spirit": "Rum",
+    "category": "Highball",
+    "glass": "Highball",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "2 oz",
+        "name": "Rum"
+      },
+      {
+        "amount": "1/2",
+        "name": "Lime"
+      },
+      {
+        "amount": "1",
+        "name": "Sugar Cube"
+      },
+      {
+        "amount": "4 oz",
+        "name": "Soda"
+      },
+      {
+        "amount": "1",
+        "name": "Mint"
+      }
+    ],
+    "instructions": "",
+    "tags": [],
+    "photo": null,
+    "created": 1781737624939,
+    "updated": null,
+    "pinned": true
+  },
+  {
+    "id": "mr28yw3otl0aa8r8fmc",
+    "name": "Reflecting Pool Cocktail",
+    "spirit": "Rum",
+    "category": "Other",
+    "glass": "",
+    "desc": "",
+    "ingredients": [
+      {
+        "amount": "2 oz",
+        "name": "Rum"
+      },
+      {
+        "amount": "4 0z",
+        "name": "pineapple"
+      },
+      {
+        "amount": "1 oz",
+        "name": "blue curacao"
+      },
+      {
+        "amount": "1",
+        "name": "fruit roll up"
+      }
+    ],
+    "instructions": "",
+    "tags": [],
+    "photo": null,
+    "created": 1782920730372,
+    "updated": null,
+    "pinned": true
   }
 ]
